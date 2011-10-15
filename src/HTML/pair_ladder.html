@@ -1,0 +1,151 @@
+<html>
+<head>
+    <title>Pair Ladder</title>
+
+    <link rel="stylesheet" href="../css/pair_ladder.css"/>
+    <link rel="stylesheet" href="../css/pair_ladder_animation.css"/>
+    <link rel="stylesheet" href="../css/popup_modal.css"/>
+    <link rel="stylesheet" href="../css/developer_form.css"/>
+
+    <script type="text/javascript" src="../../Resources/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/cookie.js"></script>
+    <script type="text/javascript" src="../scripts/married_couples.js"></script>
+    <script type="text/javascript" src="../scripts/divorced_people.js"></script>
+    <script type="text/javascript" src="../scripts/add_subtract_pairing_days.js"></script>
+    <script type="text/javascript" src="../scripts/document_ready.js"></script>
+    <script type="text/javascript" src="../scripts/toggle_view.js"></script>
+    <script type="text/javascript" src="../scripts/popup_modal.js"></script>
+    <script type="text/javascript" src="../scripts/developer_names_form_submit.js"></script>
+    <script type="text/javascript" src="../scripts/construct_pair_ladder.js"></script>
+    <script type="text/javascript" src="../scripts/animation.js"></script>
+
+</head>
+
+<body>
+<div id="container">
+    <div id="pairing_ladder_text">
+        Pairing Ladder
+    </div>
+
+    <div id="pair_ladder_info">
+        <div id="married_couples">
+            <div class="title">Married Couples</div>
+            <div class="title small">( Days )</div>
+            <div class="clone_row couples pink_background_color"></div>
+            <div class="more hidden"><input type="button" id="married_couples_list_all" value="List All"
+                                            onclick="list_all_married_couples()"/></div>
+        </div>
+
+        <div id="pair_ladder_table_div">
+            <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
+                <tr id="top_row_names">
+                    <td id="switch_stairs">
+                        <input type="button" value="Toggle View" onclick="toggle_view();"/>
+                        <input type="button" value="Reset" onclick="reset_data();"/>
+                        <input type="button" value="Add Dev" onclick="show_add_new_developer_modal();"/>
+                    </td>
+
+                    <td nowrap="nowrap" class="top_name text_fill clone_top_name">
+                        <p class="dev_name"></p>
+                        <a class="remove_developer" href="#">Remove</a>
+                    </td>
+                </tr>
+
+                <tr class="left_names_cloned_tr left_names">
+                    <td class="left_name text_fill"><p class="dev_name"></p></td>
+                    <td class="disabled disabled_clone_td">&nbsp;</td>
+                    <td class="count_td count_td_clone_td">
+                        <div class="count">0</div>
+                        <div class="control_container">
+                            <input class="control add" type="button" value="+" onclick="doAdd(this);"/>
+                            <input class="control subtract" type="button" value="-" onclick="doSubtract(this)"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+
+        <div id="divorced_people">
+            <div class="title">Divorced</div>
+            <div class="title small">( Separate/Pair days )</div>
+            <div class="divorce_clone_row divorce red_background_color"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="modal">
+
+    <div class="form_container">
+        <div class="modal_title">
+            <h1>Enter Developer Names</h1>
+        </div>
+
+        <div class="developer_names_form">
+            <div>
+                <div class="developer_name">
+                    <input type="text" maxlength="10" value=""/>
+                    <button class="remove_developer">
+                        <img src="../images/delete.png" alt="Remove">
+                    </button>
+                </div>
+
+                <div class="developer_name cloned_developer_name">
+                    <input type="text" maxlength="10" value=""/>
+                    <button class="remove_developer">
+                        <img src="../images/delete.png" alt="Remove"/>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="add_submit_container">
+            <button id="add_another_developer">
+                Add Developer
+            </button>
+
+            <button id="submit_developers_list_button">
+                Done
+            </button>
+        </div>
+
+    </div>
+    l
+    <div class="mask"></div>
+</div>
+
+<div id="add_new_dev_modal">
+    <div class="form_container">
+        <div class="modal_title">
+            <h1>Enter New Developer Name</h1>
+        </div>
+
+        <div class="developer_names_form">
+            <div>
+                <div class="developer_name">
+                    <input type="text" maxlength="10" value=""/>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="add_submit_container">
+            <button id="add_new_developer_done" onclick="add_new_developer()">
+                Done
+            </button>
+
+            <button id="add_new_developer_cancel" onclick="close_add_new_developer_modal();">
+                Cancel
+            </button>
+        </div>
+
+    </div>
+    <div class="mask"></div>
+
+</div>
+</body>
+</html>

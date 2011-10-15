@@ -1,0 +1,92 @@
+.mask {
+    position: absolute;
+    z-index: 9990;
+    background-color: black;
+    top: 10;
+    left: 10;
+    display: none;
+}
+
+#modal .form_container {
+    width: 50%;
+    height: 50%;
+}
+
+#modal .form_container, #add_new_dev_modal .form_container {
+    position: absolute;
+    padding: 20px;
+    left: 25%;
+    top: 25%;
+    opacity: 1;
+    z-index: 9999;
+    display: none;
+    background-color: #F5F5F5;
+    border-radius: 12px 12px 12px 12px;
+    padding: 15px;
+
+    color: #555555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+
+}
+
+#add_new_dev_modal .form_container {
+    width: 50%;
+    height: 15%;
+}
+
+.modal_title {
+    text-align: center;
+}
+
+#modal h1, #add_new_dev_modal h1 {
+    margin-top: 0px;
+}
+
+#modal button {
+    display: block;
+    float: left;
+    margin: 0 1px 0 0;
+    border: none;
+    font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+    font-size: 100%;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #F5F5F5;
+    cursor: pointer;
+}
+
+#modal .developer_name, #add_new_dev_modal .developer_name {
+    padding-bottom: 3px;
+}
+
+#add_another_developer, #submit_developers_list_button, #add_new_developer_done, #add_new_developer_cancel {
+    color: white !important;
+    border: 1px solid !important;
+    background-color: #6299c5 !important;
+}
+
+#modal .developer_names_form {
+    height: 75%;
+}
+
+.developer_names_form {
+    width: 66%;
+    margin-left: auto;
+}
+
+.add_submit_container {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.developer_names_form div input {
+    -moz-transition: -moz-transform 0.5s;
+}
+
+.developer_names_form div input:focus {
+    -moz-box-shadow: 0 0 25px #ccc;
+    -moz-transform: scale(1.1);
+}
+

@@ -1,0 +1,32 @@
+#top_row_names td,
+#pair_ladder_table td.left_name,
+#divorced_people div.divorce {
+    -moz-transition: -moz-transform 0.5s;
+}
+
+#top_row_names td:hover,
+#pair_ladder_table td.left_name:hover,
+#divorced_people div.divorce:hover {
+    z-index: 2;
+    border: 1px solid white;
+    -moz-transform: scale(1.5);
+
+}
+
+#pair_ladder_table td.count_td {
+    -moz-transition: -moz-transform 0.5s;
+}
+
+#pair_ladder_table td.count_td:hover {
+    /*border: 1px solid white;*/
+    z-index: 2;
+    -moz-transform: scale(1.5);
+}
+
+#pair_ladder_table td.count_td:hover {
+    border: 1px solid white;
+    z-index: 2;
+    -moz-transform: -moz-transform 0.5s;
+}
+
+
