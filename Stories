@@ -1,8 +1,17 @@
-Ready for dev:
+To be played:
 ----------------------------------------------------------------------------------
-PL-002 Remove married and divorced couples sidebars, comment out pop-out animation.
-PL-003 ...
+PL-003 Remove married and divorced couples sidebars, comment out pop-out animation.
+PL-004 Add total pair days to dev name box
+PL-005 Add "Stairs" view and make default
+PL-006 Change back ground of "tick" boxes to use dynamic coloring (0 days - 100% transparent, most days 0% transparent). Use some shade of Blue.
+PL-007 Change back ground of dev name boxes to use dynamic coloring (0 days - 100% transparent, most days 0% transparent). Use some shade of green.
+
+Need additional analysis
+----------------------------------------------------------------------------------
+PL-008* Date tracking ...
+PL-009* load/save stats ...
 
 Complete:
 ----------------------------------------------------------------------------------
 PL-001 Set up GitHub repository and push current code base.
+PL-002 Add Apache 2.0 License
