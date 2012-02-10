@@ -15,11 +15,13 @@
 
     File Name: pair_ladder.css
     Description of Purpose: css for pair ladder
+
+    Modified by Nishitha Ningegowda 2012
 */
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #dddede;
+    background-color: #FFFFFF;
     /*overflow:hidden;*/
 }
 
@@ -127,7 +129,7 @@ body {
 }
 
 .left_name, .top_name {
-    background-color: #008b8b;
+    background-color: #57E964;
     color: white;
 }
 
