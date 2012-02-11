@@ -21,8 +21,6 @@ function doAdd(button) {
     var newValue = parseInt(value) + 1;
     button.parentNode.parentNode.children[0].innerHTML = newValue;
     create_and_write_data_to_cookie()
-    find_married_and_divorced_couples()
-
 }
 
 function doSubtract(button) {
@@ -31,6 +29,5 @@ function doSubtract(button) {
     if (newValue >= 0) {
         button.parentNode.parentNode.children[0].innerHTML = newValue;
         create_and_write_data_to_cookie()
-        find_married_and_divorced_couples()
     }
 }

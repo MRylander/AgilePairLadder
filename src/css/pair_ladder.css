@@ -79,30 +79,9 @@ body {
     box-shadow: 1px 1px 2px white;
 }
 
-#married_couples, #divorced_people, #pair_ladder_table_div {
+#pair_ladder_table_div {
     float: left;
     position: absolute;
-}
-
-#divorced_people {
-    right: 3%;
-}
-
-#married_couples, #divorced_people {
-    width: 17%;
-    border: 1px solid white;
-    border-radius: 0.5em;
-    text-shadow: 5px 1px 5px black;
-    color: white;
-    background-color: #0065FF;
-}
-
-#married_couples {
-    left: 2%;
-}
-
-#married_couples div, #divorced_people div {
-    border-radius: .2em;
 }
 
 .disabled {
@@ -131,12 +110,6 @@ body {
     color: white;
 }
 
-.couples, .divorce {
-    font-size: 18px;
-    padding: 0 0 5px 0;
-    margin: 3px 10px 0 10px;
-}
-
 .pink_background_color {
     background-color: #FF0099;
 }
@@ -151,10 +124,6 @@ body {
 
 .red_background_color {
     background-color: #FF0000;
-}
-
-.clone_row, .divorce_clone_row {
-    opacity: 0;
 }
 
 .count {

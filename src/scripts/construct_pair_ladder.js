@@ -120,11 +120,4 @@ function initialize_pair_ladder(pair_cookie_data, devNames) {
         var count_td = $("#" + firstDevName + " td")[count_index]
         $(count_td).find(".count").text(pairedDays);
     });
-
-    find_married_and_divorced_couples()
-}
-
-function find_married_and_divorced_couples() {
-    find_married_couples();
-    find_divorced_people();
 }

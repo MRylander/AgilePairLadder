@@ -93,9 +93,6 @@ function reset_data() {
     });
 
     create_and_write_data_to_cookie();
-    clear_existing_married_couples()
-    clear_existing_divorced_people()
-
 }
 
 function create_cookies_initial_data_and_write_to_cookies(devNameList) {

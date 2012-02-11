@@ -16,47 +16,6 @@
     Description of Purpose: js for pair ladder
 */
 
-function init_divorced_hover_animation() {
-    $("#divorced_people .divorce").hover(
-        function() {
-            var dev_name = $(this).text().split(" - ")[0];
-            var top_p = $("#top_row_names td." + dev_name + " .dev_name");
-
-            var left_p = $("tr#" + dev_name + " td.left_name .dev_name");
-
-            $(top_p).css({
-                '-moz-transition': '-moz-transform 0.5s',
-                '-moz-transform':'scale(2.5)',
-                'color' : 'red'
-            });
-
-            $(left_p).css({
-                '-moz-transition': '-moz-transform 0.5s',
-                '-moz-transform':'scale(2.5)',
-                'color' : 'red'
-            });
-        },
-
-        function() {
-            var dev_name = $(this).text().split(" - ")[0];
-            var top_p = $("#top_row_names td." + dev_name + " .dev_name");
-            var left_p = $("tr#" + dev_name + " td.left_name .dev_name");
-
-            $(top_p).css({
-                '-moz-transition': '-moz-transform 0.5s',
-                '-moz-transform':'scale(1)',
-                'color' : 'white'
-            })
-
-            $(left_p).css({
-                '-moz-transition': '-moz-transform 0.5s',
-                '-moz-transform':'scale(1)',
-                'color' : 'white'
-            })
-        }
-    );
-}
-
 function init_count_hover_animation() {
     $("#pair_ladder_table td.count_td").hover(
         function () {
@@ -166,6 +125,5 @@ function init_dev_name_hover_animation() {
 
 function init_hover_animation() {
     init_count_hover_animation();
-    init_divorced_hover_animation();
     init_dev_name_hover_animation();
 }

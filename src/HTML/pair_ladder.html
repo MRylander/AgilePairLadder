@@ -22,14 +22,11 @@
     <title>Pair Ladder</title>
 
     <link rel="stylesheet" href="../css/pair_ladder.css"/>
-    <link rel="stylesheet" href="../css/pair_ladder_animation.css"/>
     <link rel="stylesheet" href="../css/popup_modal.css"/>
     <link rel="stylesheet" href="../css/developer_form.css"/>
 
     <script type="text/javascript" src="../../Resources/jquery.js"></script>
     <script type="text/javascript" src="../scripts/cookie.js"></script>
-    <script type="text/javascript" src="../scripts/married_couples.js"></script>
-    <script type="text/javascript" src="../scripts/divorced_people.js"></script>
     <script type="text/javascript" src="../scripts/add_subtract_pairing_days.js"></script>
     <script type="text/javascript" src="../scripts/document_ready.js"></script>
     <script type="text/javascript" src="../scripts/toggle_view.js"></script>
@@ -47,14 +44,6 @@
     </div>
 
     <div id="pair_ladder_info">
-        <div id="married_couples">
-            <div class="title">Married Couples</div>
-            <div class="title small">( Days )</div>
-            <div class="clone_row couples pink_background_color"></div>
-            <div class="more hidden"><input type="button" id="married_couples_list_all" value="List All"
-                                            onclick="list_all_married_couples()"/></div>
-        </div>
-
         <div id="pair_ladder_table_div">
             <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
                 <tr id="top_row_names">
@@ -69,7 +58,6 @@
                         <a class="remove_developer" href="#">Remove</a>
                     </td>
                 </tr>
-
                 <tr class="left_names_cloned_tr left_names">
                     <td class="left_name text_fill"><p class="dev_name"></p></td>
                     <td class="disabled disabled_clone_td">&nbsp;</td>
@@ -82,16 +70,7 @@
                     </td>
                 </tr>
             </table>
-
-
         </div>
-
-        <div id="divorced_people">
-            <div class="title">Divorced</div>
-            <div class="title small">( Separate/Pair days )</div>
-            <div class="divorce_clone_row divorce red_background_color"></div>
-        </div>
-
     </div>
 </div>
 
