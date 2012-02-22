@@ -15,6 +15,7 @@
 
     File Name: popup_modal.css
     Description of Purpose: css for pair ladder
+    Modified by Akshay Jawharkar, Nishitha Ningegowda
 */
 
 .mask {
@@ -75,8 +76,18 @@
     cursor: pointer;
 }
 
-#modal .developer_name, #add_new_dev_modal .developer_name {
+.remove_developer{
+	display:block;
+	padding: 3px;
+	cursor: pointer;
+}
+
+ #add_new_dev_modal .developer_name {
     padding-bottom: 3px;
+}
+
+div.developer_name{
+	padding-bottom: 3px;
 }
 
 #add_another_developer, #submit_developers_list_button, #add_new_developer_done, #add_new_developer_cancel {
@@ -86,7 +97,7 @@
 }
 
 #modal .developer_names_form {
-    height: 75%;
+    height: 90%;
 }
 
 .developer_names_form {
@@ -102,6 +113,7 @@
 
 .developer_names_form div input {
     -moz-transition: -moz-transform 0.5s;
+    float: left;
 }
 
 .developer_names_form div input:focus {

@@ -15,6 +15,7 @@
 
     File Name: add_subtract_pairing_days.js
     Description of Purpose: js for pair ladder
+    Modified by Akshay Jawharkar, Nishitha Ningegowda
 */
 
 function construct_pair_ladder() {
@@ -55,10 +56,19 @@ function create_pair_ladder_rows(devNames) {
 function create_count_boxes(clonedLeftNameTR, numberOfCountBoxes) {
     var countTDToBeCloned = $(clonedLeftNameTR).find(".count_td_clone_td");
 
+    var devNames = read_cookie(dev_names_cookie_names)
+	var devCount = devNames.length;
+
     for (var i = 0; i < numberOfCountBoxes; i++) {
+
+	    var primaryDevID = $(clonedLeftNameTR).attr("id");
+    	var secondaryDevID = devNames[devCount - numberOfCountBoxes + i];
+    	var countID = primaryDevID + "-" + secondaryDevID;
+
         var countClonedTD = $(countTDToBeCloned).clone();
         $(countClonedTD).removeClass("count_td_clone_td");
         $(countClonedTD).insertBefore($(countTDToBeCloned))
+        $(countClonedTD).attr('id', countID);
     }
 
     $(countTDToBeCloned).remove();
@@ -106,9 +116,9 @@ function initialize_pair_ladder(pair_cookie_data, devNames) {
     $(".count").css("height", countDivHeight - 6);
     $(".count").css("font-size", (countDivHeight * .70));
 
-
-    $(".top_name p.dev_name").css("font-size", countDivHeight * .30);
-    $(".left_name p.dev_name").css("font-size", countDivHeight * .30);
+//
+//    $(".top_name p.dev_name").css("font-size", countDivHeight * .30);
+//    $(".left_name p.dev_name").css("font-size", countDivHeight * .30);
 
     $(pair_cookie_data).each(function(index, value) {
         var pair_data = value.split("-");

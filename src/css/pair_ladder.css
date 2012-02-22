@@ -65,9 +65,9 @@ body {
 #pair_ladder_table_div {
     margin-left: 15px;
     margin-right: 15px;
-    left: 20%;
-    width: 56%;
-    height: 100%
+    left: 2%;
+    width: 50%;
+    height: 55%
 }
 
 #pair_ladder_table {
@@ -131,6 +131,7 @@ body {
 .left_name, .top_name {
     background-color: #57E964;
     color: white;
+    font-size: 25px;
 }
 
 .couples, .divorce {
@@ -163,10 +164,11 @@ body {
     text-shadow: 5px 1px 5px white;
 }
 
-.left_name p, .top_name p.dev_name {
+
+.left_name p, .top_name p, .dev_name {
     word-wrap: normal;
     font-weight: bold;
-    text-shadow: 5px 1px 5px black;
+    font-size: 20px;
     white-space: nowrap;
 }
 

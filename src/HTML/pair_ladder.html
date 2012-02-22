@@ -66,14 +66,14 @@
                         <input type="button" value="Add Dev" onclick="show_add_new_developer_modal();"/>
                     </td>
 
-                    <td nowrap="nowrap" class="top_name text_fill clone_top_name">
+                    <td nowrap="nowrap" class="top_name clone_top_name">
                         <p class="dev_name"></p>
                         <a class="remove_developer" href="#">Remove</a>
                     </td>
                 </tr>
 
                 <tr class="left_names_cloned_tr left_names">
-                    <td class="left_name text_fill"><p class="dev_name"></p></td>
+                    <td nowrap="nowrap" class="left_name"><p class="dev_name"></p></td>
                     <td class="disabled disabled_clone_td">&nbsp;</td>
                     <td class="count_td count_td_clone_td">
                         <div class="count">0</div>
@@ -108,10 +108,8 @@
         <div class="developer_names_form">
             <div>
                 <div class="developer_name">
-                    <input type="text" maxlength="10" value=""/>
-                    <button class="remove_developer">
-                        <img src="../images/delete.png" alt="Remove">
-                    </button>
+                    <input type="text" maxlength="25" value=""/>
+                        <img src="../images/delete.png" alt="Remove" class="remove_developer">
                 </div>
 
                 <div class="developer_name cloned_developer_name">
@@ -135,7 +133,6 @@
         </div>
 
     </div>
-    l
     <div class="mask"></div>
 </div>
 
