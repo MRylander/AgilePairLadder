@@ -14,6 +14,7 @@
     limitations under the License.
 
     Description of Purpose: js for pair ladder
+    Modified by Akshay  Jawharkar
 */
 
 var pair_cookie_name = "pair_cookie";
@@ -48,40 +49,37 @@ function read_cookie(cookieName) {
 
 }
 
-function create_and_write_data_to_cookie() {
-    var pairCookieData = "";
-    var devNameList = read_cookie(dev_names_cookie_names)
+function create_and_write_data_to_cookie(devNames, newValue) {
 
-    var toggle = read_cookie(toggle_cookie_name)[0];
+	var pairData = read_cookie(pair_cookie_name);
 
-    if (toggle == 0) {
-        for (var i = 0; i < devNameList.length; i++) {
-            for (var j = i + 1; j < devNameList.length; j++) {
-                var top_name = $("td." + devNameList[j]);
-                var count_index = $("#top_row_names td").index($(top_name))
+	var cnt = pairData.length;
+	var newCookieData = "";
 
-                var count_td = $("#" + devNameList[i] + " td")[count_index]
-                var count_element = $(count_td).find(".count")[0];
-                var pairedDays = $(count_element).text();
-
-                pairCookieData += devNameList[i] + "-" + devNameList[j] + "-" + pairedDays + ",";
+	for( var i = 0; i < cnt; i++ ){
+		var pairObj = pairData[ i ];
+		var pairNames = pairObj.slice(0, -2);
+		if( pairNames == devNames ){
+			var newPairVal = pairObj.slice(0, -1) + newValue;
+			pairData[i] = newPairVal;
             }
-        }
-    } else {
-        for (var i = 1; i < devNameList.length; i++) {
-            for (var j = 0; j < i; j++) {
-                var top_name = $("." + devNameList[j]);
-                var count_index = $("#top_row_names td").index($(top_name))
+//        }
+//    } else {
+//        for (var i = 1; i < devNameList.length; i++) {
+//            for (var j = 0; j < i; j++) {
+//                var top_name = $("." + devNameList[j]);
+//                var count_index = $("#top_row_names td").index($(top_name))
 
-                var count_td = $("#" + devNameList[i] + " td")[count_index]
-                var count_element = $(count_td).find(".count")[0];
-                var pairedDays = $(count_element).text();
-                pairCookieData += devNameList[j] + "-" + devNameList[i] + "-" + pairedDays + ",";
-            }
-        }
+		newCookieData = (newCookieData != "") ? (newCookieData + pairData[ i ] + ",") : (pairData[ i ] + ",");
+//            }
+//        }
     }
 
-    update_pair_cookie(pairCookieData.substring(0, pairCookieData.length - 1))
+	//remove the last comma and update the cookie data
+	newCookieData = newCookieData.slice(0, -1);
+
+	update_pair_cookie( newCookieData );
+
 }
 
 function reset_data() {

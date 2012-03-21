@@ -15,11 +15,13 @@
 
     File Name: pair_ladder.css
     Description of Purpose: css for pair ladder
+
+    Modified by Nishitha Ningegowda 2012
 */
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #dddede;
+    background-color: #FFFFFF;
     /*overflow:hidden;*/
 }
 
@@ -63,9 +65,9 @@ body {
 #pair_ladder_table_div {
     margin-left: 15px;
     margin-right: 15px;
-    left: 20%;
-    width: 56%;
-    height: 100%
+    left: 2%;
+    width: 50%;
+    height: 55%
 }
 
 #pair_ladder_table {
@@ -106,8 +108,9 @@ body {
 }
 
 .left_name, .top_name {
-    background-color: #008b8b;
+    background-color: #57E964;
     color: white;
+    font-size: 25px;
 }
 
 .pink_background_color {
@@ -126,14 +129,18 @@ body {
     background-color: #FF0000;
 }
 
+.clone_row, .divorce_clone_row {
+    opacity: 0;
+}
+
 .count {
     text-shadow: 5px 1px 5px white;
 }
 
-.left_name p, .top_name p.dev_name {
+.left_name p, .top_name p, .dev_name {
     word-wrap: normal;
     font-weight: bold;
-    text-shadow: 5px 1px 5px black;
+    font-size: 20px;
     white-space: nowrap;
 }
 

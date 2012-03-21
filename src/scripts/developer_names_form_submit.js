@@ -21,7 +21,7 @@ function clear_form_data() {
         if (this.type == 'text') $(this).val("")
     });
 
-    $('#modal .developer_names_form .remove_developer').click(remove_developer)
+    $('.remove_developer').live('click', remove_developer)
 
     $("#add_another_developer").click(add_another_developer)
 
@@ -29,14 +29,14 @@ function clear_form_data() {
 }
 
 var submit_developer_names = function () {
-    var developerNames = $('#modal .developer_names_form').find('input[type="text"]')
+    var developerNames = $('#modal .developer_names_form').find('input[type="text"]');
 
-    var developerNamesList = []
+    var developerNamesList = [];
 
     $(developerNames).each(function () {
-        var developerName = this.value.replace(/\s/gi, "")
+        var developerName = this.value.trim();
         if (!(developerName == "")) {
-            developerNamesList.push(developerName)
+            developerNamesList.push(developerName);
         }
     })
 
@@ -48,17 +48,20 @@ var submit_developer_names = function () {
 }
 
 var remove_developer = function() {
+	var count = $('.developer_name').length - 1;
+	if( count > 1 ){
     $(this).parent().remove()
+   }
 };
 
 var add_another_developer = function() {
-    if ($("#modal .developer_names_form").find('input[type="text"]').size() > 11) return;
+   // if ($("#modal .developer_names_form").find('input[type="text"]').size() > 11) return;
 
-    var clonedDiv = $("#modal .developer_names_form .cloned_developer_name").clone();
-    $(clonedDiv).removeClass("cloned_developer_name");
-    $(clonedDiv).insertBefore($("#modal .developer_names_form .cloned_developer_name"));
-    $(clonedDiv).find(".remove_developer").click(remove_developer);
-    $(clonedDiv).find('input[type="text"]').focus();
+	var firstElem = $('.developer_name:first');
+    var clonedDiv = firstElem.clone();
+    $(clonedDiv).insertBefore( firstElem );
+    var newInput = $(clonedDiv).find('input[type="text"]');
+    newInput.val("").focus();
 };
 
 

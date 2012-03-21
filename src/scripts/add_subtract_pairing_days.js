@@ -14,20 +14,28 @@
     limitations under the License.
 
     Description of Purpose: js for pair ladder
+    Modified by Akshay Jawharkar
 */
 
 function doAdd(button) {
-    var value = button.parentNode.parentNode.children[0].innerHTML;
+	var td = button.parentNode.parentNode;
+    var value = td.children[0].innerHTML;
     var newValue = parseInt(value) + 1;
-    button.parentNode.parentNode.children[0].innerHTML = newValue;
-    create_and_write_data_to_cookie()
+    td.children[0].innerHTML = newValue;
+    var devPair = td.id;
+    create_and_write_data_to_cookie(devPair, newValue);
+    find_married_and_divorced_couples()
+
 }
 
 function doSubtract(button) {
-    var value = button.parentNode.parentNode.children[0].innerHTML;
+	var td = button.parentNode.parentNode;
+    var value = td.children[0].innerHTML;
     var newValue = parseInt(value) - 1;
     if (newValue >= 0) {
-        button.parentNode.parentNode.children[0].innerHTML = newValue;
-        create_and_write_data_to_cookie()
+        td.children[0].innerHTML = newValue;
+        var devPair = td.id;
+        create_and_write_data_to_cookie(devPair, newValue)
+        find_married_and_divorced_couples()
     }
 }
