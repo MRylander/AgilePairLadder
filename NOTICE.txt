@@ -29,5 +29,6 @@ AgilePairLadder@gmail.com
 Contributors:
 	- Sandeep Aggarwal (Original Creator)
 	- Michael Rylander (Project Lead - AgilePairLadder@gmail.com)
-
+    - Nishitha Ningegowda
+    - Akshay Jawharkar
 
