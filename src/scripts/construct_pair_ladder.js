@@ -19,25 +19,18 @@
 */
 
 function construct_pair_ladder() {
-
     var devNames = read_cookie(dev_names_cookie_names)
-
     create_top_row_names(devNames);
     create_pair_ladder_rows(devNames)
-
     initialize_pair_ladder(read_cookie(pair_cookie_name), devNames)
 }
 
 function create_pair_ladder_rows(devNames) {
-
     var leftNameTR = $("#pair_ladder_table .left_names_cloned_tr");
-
     $(devNames).each(function(index, devName) {
-
         var clonedLeftNameTR = $(leftNameTR).clone();
         $(clonedLeftNameTR).removeClass("left_names_cloned_tr");
         $(clonedLeftNameTR).attr("id", devName);
-
         $(clonedLeftNameTR).find(".left_name").find(".dev_name").text(devName); // show developer name on left most side.
 
         var numberOfCountBoxes = devNames.length - index - 1;
@@ -45,22 +38,16 @@ function create_pair_ladder_rows(devNames) {
 
         create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes);
         create_count_boxes(clonedLeftNameTR, numberOfCountBoxes);
-        $(clonedLeftNameTR).insertBefore($(leftNameTR))
-
+        $(clonedLeftNameTR).insertAfter($(leftNameTR))
     })
-
     $(leftNameTR).remove();
-
 }
 
 function create_count_boxes(clonedLeftNameTR, numberOfCountBoxes) {
     var countTDToBeCloned = $(clonedLeftNameTR).find(".count_td_clone_td");
-
     var devNames = read_cookie(dev_names_cookie_names)
 	var devCount = devNames.length;
-
     for (var i = 0; i < numberOfCountBoxes; i++) {
-
 	    var primaryDevID = $(clonedLeftNameTR).attr("id");
     	var secondaryDevID = devNames[devCount - numberOfCountBoxes + i];
     	var countID = primaryDevID + "-" + secondaryDevID;
@@ -70,14 +57,11 @@ function create_count_boxes(clonedLeftNameTR, numberOfCountBoxes) {
         $(countClonedTD).insertBefore($(countTDToBeCloned))
         $(countClonedTD).attr('id', countID);
     }
-
     $(countTDToBeCloned).remove();
 }
 
-
 function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
     var disabledTDToBeCloned = $(clonedLeftNameTR).find(".disabled_clone_td");
-
     for (var i = 0; i < numberOfDisabledBoxes; i++) {
         var disabledCloneTD = $(disabledTDToBeCloned).clone();
         $(disabledCloneTD).removeClass("disabled_clone_td");
@@ -88,9 +72,7 @@ function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
 
 function create_top_row_names(devNames) {
     var topRowNamesTR = $("#top_row_names .clone_top_name");
-
     $(devNames).each(function(index, devName) {
-
         var clonedTopRowTD = $(topRowNamesTR).clone();
         $(clonedTopRowTD).removeClass("clone_top_name");
         $(clonedTopRowTD).addClass(devName);
@@ -100,7 +82,6 @@ function create_top_row_names(devNames) {
 
     $(topRowNamesTR).remove();
 }
-
 
 function initialize_pair_ladder(pair_cookie_data, devNames) {
     var numberOfDevs = devNames.length
@@ -115,7 +96,6 @@ function initialize_pair_ladder(pair_cookie_data, devNames) {
     var countDivHeight = (newHeightAndWidth - (parseFloat(newHeightAndWidth / 100) * 30));
     $(".count").css("height", countDivHeight - 6);
     $(".count").css("font-size", (countDivHeight * .70));
-
 
     $(pair_cookie_data).each(function(index, value) {
         var pair_data = value.split("-");
