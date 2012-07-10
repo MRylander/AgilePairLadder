@@ -29,7 +29,7 @@ $(document).ready(function() {
 
     construct_pair_ladder();
 
-    $("#top_row_names .remove_developer").click(function() {
+    $("#pair_ladder_table .remove_developer").click(function() {
         remove_a_dev(this);
         return false;
     });

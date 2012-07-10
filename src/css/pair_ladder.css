@@ -13,7 +13,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
-    File Name: pair_ladder.css
     Description of Purpose: css for pair ladder
 
     Modified by Nishitha Ningegowda 2012
@@ -22,7 +21,6 @@
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #FFFFFF;
-    /*overflow:hidden;*/
 }
 
 #switch_stairs input {
@@ -52,7 +50,6 @@ body {
     background-color: #0065FF;
     text-shadow: 5px 1px 5px black;
     border: 2px solid white;
-
 }
 
 #pair_ladder_info {
@@ -67,7 +64,9 @@ body {
     margin-right: 15px;
     left: 2%;
     width: 50%;
-    height: 55%
+    height: 55%;
+    float: left;
+    position: absolute;
 }
 
 #pair_ladder_table {
@@ -79,11 +78,6 @@ body {
     text-align: center;
     border-top-right-radius: 1.2em;
     box-shadow: 1px 1px 2px white;
-}
-
-#pair_ladder_table_div {
-    float: left;
-    position: absolute;
 }
 
 .disabled {
@@ -151,7 +145,6 @@ body {
 td#switch_stairs {
     border-collapse: collapse;
     box-shadow: 0 0 0;
-
 }
 
 .hidden {

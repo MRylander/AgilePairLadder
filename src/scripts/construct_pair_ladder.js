@@ -13,14 +13,12 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
-    File Name: add_subtract_pairing_days.js
     Description of Purpose: js for pair ladder
     Modified by Akshay Jawharkar, Nishitha Ningegowda
 */
 
 function construct_pair_ladder() {
     var devNames = read_cookie(dev_names_cookie_names)
-    create_top_row_names(devNames);
     create_pair_ladder_rows(devNames)
     initialize_pair_ladder(read_cookie(pair_cookie_name), devNames)
 }
@@ -33,11 +31,13 @@ function create_pair_ladder_rows(devNames) {
         $(clonedLeftNameTR).attr("id", devName);
         $(clonedLeftNameTR).find(".left_name").find(".dev_name").text(devName); // show developer name on left most side.
 
-        var numberOfCountBoxes = devNames.length - index - 1;
-        var numberOfDisabledBoxes = devNames.length - numberOfCountBoxes;
+        var totalNumberOfBoxes = devNames.length;
+        var namedBoxesNeeded = 1;
+        var countBoxesNeeded = totalNumberOfBoxes - (namedBoxesNeeded + index);
+        var blankBoxesNeeded = totalNumberOfBoxes - (namedBoxesNeeded + countBoxesNeeded);
 
-        create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes);
-        create_count_boxes(clonedLeftNameTR, numberOfCountBoxes);
+        create_disabled_boxes(clonedLeftNameTR, blankBoxesNeeded);
+        create_count_boxes(clonedLeftNameTR, countBoxesNeeded);
         $(clonedLeftNameTR).insertAfter($(leftNameTR))
     })
     $(leftNameTR).remove();

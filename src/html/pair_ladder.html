@@ -13,7 +13,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
-    File Name: pair_ladder.html
     Description of Purpose: Is the pair ladder
 
     Modified by Nishitha Ningegowda 2012
@@ -42,28 +41,30 @@
 
 <body>
 <div id="container">
+    <!-- Title -->
     <div id="pairing_ladder_text">
-        Pairing Ladder
+        Pair Stair
     </div>
 
+    <!-- Controls -->
+    <div>
+        <div>
+            <input type="button" value="Toggle View" onclick="toggle_view();"/>
+            <input type="button" value="Reset" onclick="reset_data();"/>
+            <input type="button" value="Add Dev" onclick="show_add_new_developer_modal();"/>
+        </div>
+    </div>
+
+    <!-- Pair Stairs -->
     <div id="pair_ladder_info">
         <div id="pair_ladder_table_div">
             <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
-                <tr id="top_row_names">
-                    <td id="switch_stairs">
-                        <input type="button" value="Toggle View" onclick="toggle_view();"/>
-                        <input type="button" value="Reset" onclick="reset_data();"/>
-                        <input type="button" value="Add Dev" onclick="show_add_new_developer_modal();"/>
-                    </td>
-
-                    <td nowrap="nowrap" class="top_name clone_top_name">
+                <tr class="left_names_cloned_tr left_names">
+                    <td class="disabled disabled_clone_td">&nbsp;</td>
+                    <td class="left_name">
                         <p class="dev_name"></p>
                         <a class="remove_developer" href="#">Remove</a>
                     </td>
-                </tr>
-                <tr class="left_names_cloned_tr left_names">
-                    <td class="disabled disabled_clone_td">&nbsp;</td>
-                    <td nowrap="nowrap" class="left_name"><p class="dev_name"></p></td>
                     <td class="count_td count_td_clone_td">
                         <div class="count">0</div>
                         <div class="control_container">
