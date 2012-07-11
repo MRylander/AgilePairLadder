@@ -70,19 +70,6 @@ function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
     $(disabledTDToBeCloned).remove();
 }
 
-function create_top_row_names(devNames) {
-    var topRowNamesTR = $("#top_row_names .clone_top_name");
-    $(devNames).each(function(index, devName) {
-        var clonedTopRowTD = $(topRowNamesTR).clone();
-        $(clonedTopRowTD).removeClass("clone_top_name");
-        $(clonedTopRowTD).addClass(devName);
-        $(clonedTopRowTD).find(".dev_name").text(devName);
-        $(clonedTopRowTD).insertBefore($(topRowNamesTR))
-    })
-
-    $(topRowNamesTR).remove();
-}
-
 function initialize_pair_ladder(pair_cookie_data, devNames) {
     var numberOfDevs = devNames.length
     var width = $("#pair_ladder_table_div").width() / (numberOfDevs + 2);
@@ -103,8 +90,6 @@ function initialize_pair_ladder(pair_cookie_data, devNames) {
         var secondDevName = pair_data[1];
         var pairedDays = pair_data[2];
 
-        var count_index = $("#top_row_names td").index($("." + secondDevName))
-        var count_td = $("#" + firstDevName + " td")[count_index]
-        $(count_td).find(".count").text(pairedDays);
+        $("#" + firstDevName + "-" + secondDevName).find(".count").text(pairedDays);
     });
 }

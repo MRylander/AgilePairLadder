@@ -45,7 +45,6 @@ function read_cookie(cookieName) {
 }
 
 function create_and_write_data_to_cookie(devNames, newValue) {
-
 	var pairData = read_cookie(pair_cookie_name);
 
 	var cnt = pairData.length;

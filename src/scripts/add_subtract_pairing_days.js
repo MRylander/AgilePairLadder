@@ -24,8 +24,6 @@ function doAdd(button) {
     td.children[0].innerHTML = newValue;
     var devPair = td.id;
     create_and_write_data_to_cookie(devPair, newValue);
-    find_married_and_divorced_couples()
-
 }
 
 function doSubtract(button) {
@@ -36,6 +34,5 @@ function doSubtract(button) {
         td.children[0].innerHTML = newValue;
         var devPair = td.id;
         create_and_write_data_to_cookie(devPair, newValue)
-        find_married_and_divorced_couples()
     }
 }
