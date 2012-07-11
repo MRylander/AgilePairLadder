@@ -16,11 +16,8 @@
     Description of Purpose: js for pair ladder
 */
 
-toggle = 0;
-
 $(document).ready(function() {
     var data = read_cookie(pair_cookie_name);
-
 
     if (data == null) {
         show_popup_modal()
@@ -34,7 +31,6 @@ $(document).ready(function() {
         return false;
     });
 
-    toggle_from_default_view()
     init_hover_animation();
 });
 

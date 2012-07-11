@@ -19,14 +19,9 @@
 
 var pair_cookie_name = "pair_cookie";
 var dev_names_cookie_names = "dev_names_cookie"
-var toggle_cookie_name = "toggle_cookie"
 
 function update_dev_names_cookie(data) {
     document.cookie = dev_names_cookie_names + "=" + data + "; expires=Wednesday, 01-Aug-2040 08:00:00 GMT";
-}
-
-function write_toggle_data_to_cookie(data) {
-    document.cookie = toggle_cookie_name + "=" + data + "; expires=Wednesday, 01-Aug-2040 08:00:00 GMT";
 }
 
 function update_pair_cookie(data) {
