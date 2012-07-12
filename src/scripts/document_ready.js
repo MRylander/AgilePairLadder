@@ -31,6 +31,12 @@ $(document).ready(function() {
         return false;
     });
 
+    var resizeTimer;
+    $(window).resize(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(construct_pair_ladder, 1000);
+    });
+
     init_hover_animation();
 });
 

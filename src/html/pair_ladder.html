@@ -17,6 +17,7 @@
 
     Modified by Nishitha Ningegowda 2012
 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
 <head>
@@ -40,13 +41,11 @@
 
 <body>
 <div id="container">
-    <!-- Title -->
-    <div id="pairing_ladder_text">
-        Pair Stair
-    </div>
-
-    <!-- Controls -->
-    <div>
+    <!-- Title and Controls-->
+    <div id="titleAndControlWrapper">
+        <div id="pairing_ladder_text">
+            Pair Stair
+        </div>
         <div>
             <input type="button" value="Reset" onclick="reset_data();"/>
             <input type="button" value="Add Dev" onclick="show_add_new_developer_modal();"/>
@@ -54,25 +53,27 @@
     </div>
 
     <!-- Pair Stairs -->
-    <div id="pair_ladder_info">
-        <div id="pair_ladder_table_div">
-            <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
-                <tr class="left_names_cloned_tr left_names">
-                    <td class="disabled disabled_clone_td">&nbsp;</td>
-                    <td class="left_name">
+    <div id="pairStairsWrapper">
+        <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
+            <tr class="left_names_cloned_tr left_names">
+                <td class="disabled disabled_clone_td"></td>
+                <td class="left_name">
+                    <div class="pairBox">
                         <p class="dev_name"></p>
                         <a class="remove_developer" href="#">Remove</a>
-                    </td>
-                    <td class="count_td count_td_clone_td">
+                    </div>
+                </td>
+                <td class="count_td count_td_clone_td">
+                    <div class="pairBox">
                         <div class="count">0</div>
                         <div class="control_container">
                             <input class="control add" type="button" value="+" onclick="doAdd(this);"/>
                             <input class="control subtract" type="button" value="-" onclick="doSubtract(this)"/>
                         </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 
@@ -88,7 +89,7 @@
             <div>
                 <div class="developer_name">
                     <input type="text" maxlength="25" value=""/>
-                        <img src="../images/delete.png" alt="Remove" class="remove_developer">
+                    <img src="../images/delete.png" alt="Remove" class="remove_developer">
                 </div>
 
                 <div class="developer_name cloned_developer_name">
