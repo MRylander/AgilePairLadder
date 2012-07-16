@@ -66,12 +66,6 @@ function create_and_write_data_to_cookie(pairToModify, newValue) {
 }
 
 function reset_data() {
-    $(".count").each(function(index, value) {
-        $(value).text("0");
-        $(value).parent().css("background-color", "#FF9900");
-        $(value).css("color", "black");
-        $(value).css("text-shadow", "5px 1px 5px white");
-    });
-
-    create_and_write_data_to_cookie();
+    document.cookie = pair_cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    location.reload();
 }
