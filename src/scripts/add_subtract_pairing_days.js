@@ -18,21 +18,20 @@
 */
 
 function doAdd(button) {
-	var td = button.parentNode.parentNode;
-    var value = td.children[0].innerHTML;
-    var newValue = parseInt(value) + 1;
-    td.children[0].innerHTML = newValue;
-    var devPair = td.id;
-    create_and_write_data_to_cookie(devPair, newValue);
+    var td = $(button).closest("td.count_td").first();
+    var value = td.find("div.count").text();
+    value++;
+    td.find("div.count").text(value);
+    create_and_write_data_to_cookie(td.get(0).id, value);
 }
 
 function doSubtract(button) {
-	var td = button.parentNode.parentNode;
-    var value = td.children[0].innerHTML;
-    var newValue = parseInt(value) - 1;
-    if (newValue >= 0) {
-        td.children[0].innerHTML = newValue;
-        var devPair = td.id;
-        create_and_write_data_to_cookie(devPair, newValue)
+    var td = $(button).closest("td.count_td").first();
+    var value = td.find("div.count").text();
+    if (value <= 0) {
+        return;
     }
+    value--;
+    td.find("div.count").text(value);
+    create_and_write_data_to_cookie(td.get(0).id, value);
 }
