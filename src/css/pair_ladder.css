@@ -53,6 +53,7 @@ body {
     position: absolute;
     bottom: 0px;
     right: 0px;
+    z-index: 0;
 }
 
 #pair_ladder_table {
@@ -152,6 +153,6 @@ td#switch_stairs {
     left: 5px;
     bottom: 66%;
     right: 66%;
-    z-index: -1;
+    z-index: 1;
     margin: auto;
 }
