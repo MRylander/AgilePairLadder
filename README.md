@@ -12,7 +12,7 @@ Agile Pair Ladder (aka Agile Pair Stairs) is intended to be used as a tool
 for recording pairing activity. All inquiries can be directed to
 AgilePairLadder@gmail.com
 
-![screenCap](https://github.com/MRylande/AgilePairLadder/wiki/screenCap.jpg)
+![screenCap](https://github.com/MRylande/AgilePairLadder/wiki/stairsScreenCap.jpg)
 
 ## Contributors
 -------------------------------------------------------------------------------
