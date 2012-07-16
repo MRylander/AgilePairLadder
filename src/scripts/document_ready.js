@@ -17,8 +17,9 @@
 */
 
 $(document).ready(function() {
-    var data = read_cookie(pair_cookie_name);
+    var data = read_cookie(dev_names_cookie_names);
 
+    //todo - check for all devs removed.
     if (data == null) {
         show_popup_modal()
         return
