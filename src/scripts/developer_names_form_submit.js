@@ -16,6 +16,8 @@
     Description of Purpose: js for pair ladder
 */
 
+const FALSE = -1;
+
 function clear_form_data() {
     $('.developer_names_form :input').each(function() {
         if (this.type == 'text') $(this).val("")
@@ -31,7 +33,7 @@ function clear_form_data() {
 var submit_developer_names = function () {
     var developerNames = $('#modal .developer_names_form').find('input[type="text"]');
 
-    var developerNamesList = [];
+    var developerNamesList = new Array();
 
     $(developerNames).each(function () {
         var developerName = this.value.trim();
@@ -41,9 +43,9 @@ var submit_developer_names = function () {
     })
 
     if (developerNamesList.length > 0) {
-        create_cookies_initial_data_and_write_to_cookies(developerNamesList);
+        update_dev_names_cookie(developerNamesList);
         hide_modal();
-        window.location.reload()
+        location.reload()
     }
 }
 
@@ -55,8 +57,6 @@ var remove_developer = function() {
 };
 
 var add_another_developer = function() {
-   // if ($("#modal .developer_names_form").find('input[type="text"]').size() > 11) return;
-
 	var firstElem = $('.developer_name:first');
     var clonedDiv = firstElem.clone();
     $(clonedDiv).insertBefore( firstElem );
@@ -77,32 +77,42 @@ function add_new_developer() {
     newDevNamesList += newDevName;
     update_dev_names_cookie(newDevNamesList);
 
-    window.location.reload();
+    location.reload();
 
 }
 
 function remove_a_dev(dev) {
-    var truncatedDev = $(dev).siblings(".dev_name").text();
-    var td_to_be_removed_index = $("#top_row_names td").index("." + truncatedDev);
+    var devToBeRemoved = $(dev).siblings(".dev_name").text();
 
+    removeDevFromDevNamesCookie(devToBeRemoved);
+    removeDevFromPairCookie(devToBeRemoved);
 
-    $("pair_ladder_table tr").each(function(index, tableRow) {
-        $($(tableRow).find("td")[td_to_be_removed_index]).remove();
-    });
+    location.reload();
+}
 
-    var devNamesList = read_cookie(dev_names_cookie_names);
-    var remainingDevs = "";
+function removeDevFromDevNamesCookie(devToBeRemoved) {
+    var originalDevNames = read_cookie(dev_names_cookie_names);
+    var newDevNames = new Array();
 
-    $(devNamesList).each(function(index, devName) {
-        if (devName != truncatedDev) {
-            remainingDevs += devName + ",";
+    $(originalDevNames).each(function(index, devName) {
+        if (devName != devToBeRemoved) {
+            newDevNames.push(devName);
         }
     });
 
+    update_dev_names_cookie(newDevNames);
+}
+function removeDevFromPairCookie(devToBeRemoved) {
+    var originalPairingData = read_cookie(pair_cookie_name);
+    var newPairingData = new Array();
 
-    update_dev_names_cookie(remainingDevs.substring(0, remainingDevs.length - 1))
+    $(originalPairingData).each(function(index, pairData) {
+        var pairNames = pairData.split("-", 2);
 
-    create_and_write_data_to_cookie();
-    window.location.reload();
+        if ($.inArray(devToBeRemoved, pairNames) == FALSE){
+            newPairingData.push(pairData);
+        }
+    });
 
+    update_pair_cookie(newPairingData);
 }

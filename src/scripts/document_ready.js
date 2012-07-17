@@ -16,12 +16,10 @@
     Description of Purpose: js for pair ladder
 */
 
-toggle = 0;
-
 $(document).ready(function() {
-    var data = read_cookie(pair_cookie_name);
+    var data = read_cookie(dev_names_cookie_names);
 
-
+    //todo - check for all devs removed.
     if (data == null) {
         show_popup_modal()
         return
@@ -29,12 +27,17 @@ $(document).ready(function() {
 
     construct_pair_ladder();
 
-    $("#top_row_names .remove_developer").click(function() {
+    $("#pair_ladder_table .remove_developer").click(function() {
         remove_a_dev(this);
         return false;
     });
 
-    toggle_from_default_view()
+    var resizeTimer;
+    $(window).resize(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(construct_pair_ladder, 1000);
+    });
+
     init_hover_animation();
 });
 

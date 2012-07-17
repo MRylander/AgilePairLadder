@@ -13,54 +13,41 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
-    File Name: add_subtract_pairing_days.js
     Description of Purpose: js for pair ladder
     Modified by Akshay Jawharkar, Nishitha Ningegowda
 */
 
 function construct_pair_ladder() {
-
     var devNames = read_cookie(dev_names_cookie_names)
-
-    create_top_row_names(devNames);
     create_pair_ladder_rows(devNames)
-
     initialize_pair_ladder(read_cookie(pair_cookie_name), devNames)
 }
 
 function create_pair_ladder_rows(devNames) {
-
     var leftNameTR = $("#pair_ladder_table .left_names_cloned_tr");
-
     $(devNames).each(function(index, devName) {
-
         var clonedLeftNameTR = $(leftNameTR).clone();
         $(clonedLeftNameTR).removeClass("left_names_cloned_tr");
         $(clonedLeftNameTR).attr("id", devName);
-
         $(clonedLeftNameTR).find(".left_name").find(".dev_name").text(devName); // show developer name on left most side.
 
-        var numberOfCountBoxes = devNames.length - index - 1;
-        var numberOfDisabledBoxes = devNames.length - numberOfCountBoxes;
+        var totalNumberOfBoxes = devNames.length;
+        var namedBoxesNeeded = 1;
+        var countBoxesNeeded = totalNumberOfBoxes - (namedBoxesNeeded + index);
+        var blankBoxesNeeded = totalNumberOfBoxes - (namedBoxesNeeded + countBoxesNeeded);
 
-        create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes);
-        create_count_boxes(clonedLeftNameTR, numberOfCountBoxes);
-        $(clonedLeftNameTR).insertBefore($(leftNameTR))
-
+        create_disabled_boxes(clonedLeftNameTR, blankBoxesNeeded);
+        create_count_boxes(clonedLeftNameTR, countBoxesNeeded);
+        $(clonedLeftNameTR).insertAfter($(leftNameTR))
     })
-
     $(leftNameTR).remove();
-
 }
 
 function create_count_boxes(clonedLeftNameTR, numberOfCountBoxes) {
     var countTDToBeCloned = $(clonedLeftNameTR).find(".count_td_clone_td");
-
     var devNames = read_cookie(dev_names_cookie_names)
 	var devCount = devNames.length;
-
     for (var i = 0; i < numberOfCountBoxes; i++) {
-
 	    var primaryDevID = $(clonedLeftNameTR).attr("id");
     	var secondaryDevID = devNames[devCount - numberOfCountBoxes + i];
     	var countID = primaryDevID + "-" + secondaryDevID;
@@ -70,14 +57,11 @@ function create_count_boxes(clonedLeftNameTR, numberOfCountBoxes) {
         $(countClonedTD).insertBefore($(countTDToBeCloned))
         $(countClonedTD).attr('id', countID);
     }
-
     $(countTDToBeCloned).remove();
 }
 
-
 function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
     var disabledTDToBeCloned = $(clonedLeftNameTR).find(".disabled_clone_td");
-
     for (var i = 0; i < numberOfDisabledBoxes; i++) {
         var disabledCloneTD = $(disabledTDToBeCloned).clone();
         $(disabledCloneTD).removeClass("disabled_clone_td");
@@ -86,36 +70,29 @@ function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
     $(disabledTDToBeCloned).remove();
 }
 
-function create_top_row_names(devNames) {
-    var topRowNamesTR = $("#top_row_names .clone_top_name");
-
-    $(devNames).each(function(index, devName) {
-
-        var clonedTopRowTD = $(topRowNamesTR).clone();
-        $(clonedTopRowTD).removeClass("clone_top_name");
-        $(clonedTopRowTD).addClass(devName);
-        $(clonedTopRowTD).find(".dev_name").text(devName);
-        $(clonedTopRowTD).insertBefore($(topRowNamesTR))
-    })
-
-    $(topRowNamesTR).remove();
-}
-
-
 function initialize_pair_ladder(pair_cookie_data, devNames) {
     var numberOfDevs = devNames.length
-    var width = $("#pair_ladder_table_div").width() / (numberOfDevs + 2);
 
-    var newHeightAndWidth = width - 10;
-    $("#pair_ladder_table td").css("height", newHeightAndWidth)
-    $("#pair_ladder_table td").width(newHeightAndWidth);
+    var windowHeight = window.innerHeight;
+    var windowWidth = window.innerWidth;
+    var squareWidth = Math.min(windowHeight, windowWidth)
+
+    // TODO - auto figure the height for boarders better.
+    var pairBoxSquareWidth = (squareWidth / numberOfDevs) - (numberOfDevs * 2);
+    $("#container").css("min-height", squareWidth);
+    $("#container").css("min-width", squareWidth);
+    $("#container").css("max-height", squareWidth);
+    $("#container").css("max-width", squareWidth);
+    $("#pair_ladder_table .pairBox").css("min-height", pairBoxSquareWidth);
+    $("#pair_ladder_table .pairBox").css("min-width", pairBoxSquareWidth);
+    $("#pair_ladder_table .pairBox").css("max-height", pairBoxSquareWidth);
+    $("#pair_ladder_table .pairBox").css("max-width", pairBoxSquareWidth);
 
     var fontSize = numberOfDevs > 7 ? ((numberOfDevs > 10) ? ".5em" : "0.8em") : "1em";
 
-    var countDivHeight = (newHeightAndWidth - (parseFloat(newHeightAndWidth / 100) * 30));
+    var countDivHeight = (pairBoxSquareWidth - (parseFloat(pairBoxSquareWidth / 100) * 30));
     $(".count").css("height", countDivHeight - 6);
     $(".count").css("font-size", (countDivHeight * .70));
-
 
     $(pair_cookie_data).each(function(index, value) {
         var pair_data = value.split("-");
@@ -123,8 +100,6 @@ function initialize_pair_ladder(pair_cookie_data, devNames) {
         var secondDevName = pair_data[1];
         var pairedDays = pair_data[2];
 
-        var count_index = $("#top_row_names td").index($("." + secondDevName))
-        var count_td = $("#" + firstDevName + " td")[count_index]
-        $(count_td).find(".count").text(pairedDays);
+        $("#" + firstDevName + "-" + secondDevName).find(".count").text(pairedDays);
     });
 }

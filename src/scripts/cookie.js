@@ -19,14 +19,9 @@
 
 var pair_cookie_name = "pair_cookie";
 var dev_names_cookie_names = "dev_names_cookie"
-var toggle_cookie_name = "toggle_cookie"
 
 function update_dev_names_cookie(data) {
     document.cookie = dev_names_cookie_names + "=" + data + "; expires=Wednesday, 01-Aug-2040 08:00:00 GMT";
-}
-
-function write_toggle_data_to_cookie(data) {
-    document.cookie = toggle_cookie_name + "=" + data + "; expires=Wednesday, 01-Aug-2040 08:00:00 GMT";
 }
 
 function update_pair_cookie(data) {
@@ -49,65 +44,28 @@ function read_cookie(cookieName) {
 
 }
 
-function create_and_write_data_to_cookie(devNames, newValue) {
+function create_and_write_data_to_cookie(pairToModify, newValue) {
+    var oldPairingData = read_cookie(pair_cookie_name);
+    var newPairingData = new Array();
+    var matchingPairFound = false;
 
-	var pairData = read_cookie(pair_cookie_name);
+    $(oldPairingData).each(function(index, pairData) {
+        var pairNames = pairData.slice(0, -2);
+        if (pairNames == pairToModify) {
+            matchingPairFound = true;
+            newPairingData.push(pairNames + "-" + newValue);
+            return;
+        }
+        newPairingData.push(pairData);
+    });
+    if (!matchingPairFound){
+        newPairingData.push(pairToModify + "-" + newValue);
+    };
 
-	var cnt = pairData.length;
-	var newCookieData = "";
-
-	for( var i = 0; i < cnt; i++ ){
-		var pairObj = pairData[ i ];
-		var pairNames = pairObj.slice(0, -2);
-		if( pairNames == devNames ){
-			var newPairVal = pairObj.slice(0, -1) + newValue;
-			pairData[i] = newPairVal;
-            }
-//        }
-//    } else {
-//        for (var i = 1; i < devNameList.length; i++) {
-//            for (var j = 0; j < i; j++) {
-//                var top_name = $("." + devNameList[j]);
-//                var count_index = $("#top_row_names td").index($(top_name))
-
-		newCookieData = (newCookieData != "") ? (newCookieData + pairData[ i ] + ",") : (pairData[ i ] + ",");
-//            }
-//        }
-    }
-
-	//remove the last comma and update the cookie data
-	newCookieData = newCookieData.slice(0, -1);
-
-	update_pair_cookie( newCookieData );
-
+    update_pair_cookie(newPairingData);
 }
 
 function reset_data() {
-    $(".count").each(function(index, value) {
-        $(value).text("0");
-        $(value).parent().css("background-color", "#FF9900");
-        $(value).css("color", "black");
-        $(value).css("text-shadow", "5px 1px 5px white");
-    });
-
-    create_and_write_data_to_cookie();
-}
-
-function create_cookies_initial_data_and_write_to_cookies(devNameList) {
-    var pairCookieData = '';
-
-    for (var i = 0; i < devNameList.length; i++) {
-        for (var j = i + 1; j < devNameList.length; j++) {
-            pairCookieData += devNameList[i] + "-" + devNameList[j] + "-0,"
-        }
-    }
-
-    var devNamesCookieData = ''
-    for (var k = 0; k < devNameList.length; k++) {
-        devNamesCookieData += devNameList[k] + ",";
-    }
-
-    update_pair_cookie(pairCookieData.substring(0, pairCookieData.length - 1))
-
-    update_dev_names_cookie(devNamesCookieData.substring(0, devNamesCookieData.length - 1))
+    document.cookie = pair_cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    location.reload();
 }

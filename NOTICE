@@ -1,7 +1,7 @@
 *******************************************************************************
 *                              Agile Pair Ladder                              *
+*                       Copyright 2011 Michael Rylander                       *
 *******************************************************************************
-*    Copyright 2011 Michael Rylander                                          *
 *                                                                             *
 *    Licensed under the Apache License, Version 2.0 (the "License");          *
 *    you may not use this file except in compliance with the License.         *
@@ -16,19 +16,3 @@
 *    limitations under the License.                                           *
 *                                                                             *
 *******************************************************************************
-
-Contents:
-	- Introduction
-	- Contributors list
-
-Introduction:
-	Agile Pair Ladder (aka Agile Pair Stairs) is intended to be used as a tool
-for recording pairing activity. All inquiries can be directed to
-AgilePairLadder@gmail.com
-
-Contributors:
-	- Sandeep Aggarwal (Original Creator)
-	- Michael Rylander (Project Lead - AgilePairLadder@gmail.com)
-    - Nishitha Ningegowda
-    - Akshay Jawharkar
-
