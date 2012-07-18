@@ -17,7 +17,7 @@
 */
 
 $(document).ready(function() {
-    var data = read_cookie(dev_names_cookie_names);
+    var data = persistedDevNameList.getData();
 
     //todo - check for all devs removed.
     if (data == null) {

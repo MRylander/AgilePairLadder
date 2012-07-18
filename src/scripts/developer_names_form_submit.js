@@ -43,7 +43,7 @@ var submit_developer_names = function () {
     })
 
     if (developerNamesList.length > 0) {
-        devNameList.setData(developerNamesList);
+        persistedDevNameList.setData(developerNamesList);
         hide_modal();
         location.reload()
     }
@@ -67,7 +67,7 @@ var add_another_developer = function() {
 
 function add_new_developer() {
     var newDevName = $('#add_new_dev_modal .developer_name').find('input[type="text"]')[0].value;
-    var devNames = read_cookie(dev_names_cookie_names);
+    var devNames = persistedDevNameList.getData();
     var newDevNamesList = "";
 
     $(devNames).each(function(index, value) {
@@ -75,7 +75,7 @@ function add_new_developer() {
     });
 
     newDevNamesList += newDevName;
-    devNameList.setData(newDevNamesList);
+    persistedDevNameList.setData(newDevNamesList);
 
     location.reload();
 
@@ -91,7 +91,7 @@ function remove_a_dev(dev) {
 }
 
 function removeDevFromDevNamesCookie(devToBeRemoved) {
-    var originalDevNames = read_cookie(dev_names_cookie_names);
+    var originalDevNames = persistedDevNameList.getData();
     var newDevNames = new Array();
 
     $(originalDevNames).each(function(index, devName) {
@@ -100,10 +100,10 @@ function removeDevFromDevNamesCookie(devToBeRemoved) {
         }
     });
 
-    devNameList.setData(newDevNames);
+    persistedDevNameList.setData(newDevNames);
 }
 function removeDevFromPairCookie(devToBeRemoved) {
-    var originalPairingData = read_cookie(pair_cookie_name);
+    var originalPairingData = persistedPairingDataList.getData();
     var newPairingData = new Array();
 
     $(originalPairingData).each(function(index, pairData) {
@@ -114,5 +114,5 @@ function removeDevFromPairCookie(devToBeRemoved) {
         }
     });
 
-    pairingDataList.setData(newPairingData);
+    persistedPairingDataList.setData(newPairingData);
 }

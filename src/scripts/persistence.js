@@ -19,8 +19,8 @@
 const COOKIE_NAME_PAIRING_DATA = "pair_cookie";
 const COOKIE_NAME_DEV_NAME_LIST = "dev_names_cookie"
 
-var devNameList = new pairStairCookie(COOKIE_NAME_DEV_NAME_LIST);
-var pairingDataList = new pairStairCookie(COOKIE_NAME_PAIRING_DATA);
+var persistedDevNameList = new pairStairCookie(COOKIE_NAME_DEV_NAME_LIST);
+var persistedPairingDataList = new pairStairCookie(COOKIE_NAME_PAIRING_DATA);
 
 function pairStairCookie(cookieName) {
     this.cookieName = cookieName;
@@ -28,5 +28,21 @@ function pairStairCookie(cookieName) {
     this.setData = function setCookieData(data) {
         document.cookie = this.cookieName + "=" + data + this.expires;
         return;
+    };
+    this.getData = function getCookieData() {
+        try {
+            var startOfCookieName = document.cookie.indexOf(cookieName);
+            if (startOfCookieName != -1) {
+                var startOfData = document.cookie.indexOf("=", startOfCookieName) + 1;
+                var endOfData = document.cookie.indexOf(";", startOfCookieName);
+                if (endOfData == -1) {
+                    endOfData = document.cookie.length;
+                }
+                var data = document.cookie.substring(startOfData, endOfData);
+                return data.split(",");
+            }
+        } catch (err) {
+            return null;
+        }
     };
 }

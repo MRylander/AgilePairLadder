@@ -17,27 +17,8 @@
     Modified by Akshay  Jawharkar
 */
 
-var pair_cookie_name = "pair_cookie";
-var dev_names_cookie_names = "dev_names_cookie"
-
-function read_cookie(cookieName) {
-    if (document.cookie) {
-        var index = document.cookie.indexOf(cookieName);
-        if (index != -1) {
-            countbegin = (document.cookie.indexOf("=", index) + 1);
-            countend = document.cookie.indexOf(";", index);
-            if (countend == -1) {
-                countend = document.cookie.length;
-            }
-            var data = document.cookie.substring(countbegin, countend);
-            return data == null ? null : data.split(",");
-        }
-    }
-
-}
-
 function create_and_write_data_to_cookie(pairToModify, newValue) {
-    var oldPairingData = read_cookie(pair_cookie_name);
+    var oldPairingData = persistedPairingDataList.getData();
     var newPairingData = new Array();
     var matchingPairFound = false;
 
@@ -54,10 +35,10 @@ function create_and_write_data_to_cookie(pairToModify, newValue) {
         newPairingData.push(pairToModify + "-" + newValue);
     };
 
-    pairingDataList.setData(newPairingData);
+    persistedPairingDataList.setData(newPairingData);
 }
 
 function reset_data() {
-    pairingDataList.setData("");
+    persistedPairingDataList.setData("");
     location.reload();
 }
