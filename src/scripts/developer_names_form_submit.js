@@ -43,7 +43,7 @@ var submit_developer_names = function () {
     })
 
     if (developerNamesList.length > 0) {
-        update_dev_names_cookie(developerNamesList);
+        devNameList.setData(developerNamesList);
         hide_modal();
         location.reload()
     }
@@ -75,7 +75,7 @@ function add_new_developer() {
     });
 
     newDevNamesList += newDevName;
-    update_dev_names_cookie(newDevNamesList);
+    devNameList.setData(newDevNamesList);
 
     location.reload();
 
@@ -100,7 +100,7 @@ function removeDevFromDevNamesCookie(devToBeRemoved) {
         }
     });
 
-    update_dev_names_cookie(newDevNames);
+    devNameList.setData(newDevNames);
 }
 function removeDevFromPairCookie(devToBeRemoved) {
     var originalPairingData = read_cookie(pair_cookie_name);
@@ -114,5 +114,5 @@ function removeDevFromPairCookie(devToBeRemoved) {
         }
     });
 
-    update_pair_cookie(newPairingData);
+    pairingDataList.setData(newPairingData);
 }

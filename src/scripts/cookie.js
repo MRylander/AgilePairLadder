@@ -20,14 +20,6 @@
 var pair_cookie_name = "pair_cookie";
 var dev_names_cookie_names = "dev_names_cookie"
 
-function update_dev_names_cookie(data) {
-    document.cookie = dev_names_cookie_names + "=" + data + "; expires=Wednesday, 01-Aug-2040 08:00:00 GMT";
-}
-
-function update_pair_cookie(data) {
-    document.cookie = pair_cookie_name + "=" + data + "; expires=Wednesday, 01-Aug-2040 08:00:00 GMT";
-}
-
 function read_cookie(cookieName) {
     if (document.cookie) {
         var index = document.cookie.indexOf(cookieName);
@@ -62,10 +54,10 @@ function create_and_write_data_to_cookie(pairToModify, newValue) {
         newPairingData.push(pairToModify + "-" + newValue);
     };
 
-    update_pair_cookie(newPairingData);
+    pairingDataList.setData(newPairingData);
 }
 
 function reset_data() {
-    document.cookie = pair_cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    pairingDataList.setData("");
     location.reload();
 }
