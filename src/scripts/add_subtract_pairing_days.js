@@ -22,7 +22,7 @@ function doAdd(button) {
     var value = td.find("div.count").text();
     value++;
     td.find("div.count").text(value);
-    create_and_write_data_to_cookie(td.get(0).id, value);
+    updatePairCount(td.get(0).id, value);
 }
 
 function doSubtract(button) {
@@ -33,5 +33,11 @@ function doSubtract(button) {
     }
     value--;
     td.find("div.count").text(value);
-    create_and_write_data_to_cookie(td.get(0).id, value);
+    updatePairCount(td.get(0).id, value);
 }
+
+function clearPairingData() {
+    persistedPairingDataList.clearData();
+    $(".count").text("0");
+}
+

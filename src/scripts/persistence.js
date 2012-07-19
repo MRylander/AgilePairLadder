@@ -45,4 +45,28 @@ function pairStairCookie(cookieName) {
             return null;
         }
     };
+    this.clearData = function clearCookieData() {
+        this.setData("");
+    }
+}
+
+function updatePairCount(pairToModify, newValue) {
+    var oldPairingData = persistedPairingDataList.getData();
+    var newPairingData = new Array();
+    var matchingPairFound = false;
+
+    $(oldPairingData).each(function(index, pairData) {
+        var pairNames = pairData.slice(0, -2);
+        if (pairNames == pairToModify) {
+            matchingPairFound = true;
+            newPairingData.push(pairNames + "-" + newValue);
+            return;
+        }
+        newPairingData.push(pairData);
+    });
+    if (!matchingPairFound){
+        newPairingData.push(pairToModify + "-" + newValue);
+    };
+
+    persistedPairingDataList.setData(newPairingData);
 }
