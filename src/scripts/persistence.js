@@ -17,7 +17,7 @@
  */
 
 const COOKIE_NAME_PAIRING_DATA = "pair_cookie";
-const COOKIE_NAME_DEV_NAME_LIST = "dev_names_cookie"
+const COOKIE_NAME_DEV_NAME_LIST = "dev_names_cookie";
 
 var persistedDevNameList = new pairStairCookie(COOKIE_NAME_DEV_NAME_LIST);
 var persistedPairingDataList = new pairStairCookie(COOKIE_NAME_PAIRING_DATA);
@@ -25,8 +25,9 @@ var persistedPairingDataList = new pairStairCookie(COOKIE_NAME_PAIRING_DATA);
 function pairStairCookie(cookieName) {
     this.cookieName = cookieName;
     this.expires = "; expires=Wednesday, 01-Aug-2040 08:00:00 GMT";
+    this.path = "; path=/";
     this.setData = function setCookieData(data) {
-        document.cookie = this.cookieName + "=" + data + this.expires;
+        document.cookie = this.cookieName + "=" + data + this.expires + this.path;
         return;
     };
     this.getData = function getCookieData() {
