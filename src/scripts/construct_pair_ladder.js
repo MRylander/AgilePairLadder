@@ -18,9 +18,9 @@
 */
 
 function construct_pair_ladder() {
-    var devNames = read_cookie(dev_names_cookie_names)
+    var devNames = persistedDevNameList.getData();
     create_pair_ladder_rows(devNames)
-    initialize_pair_ladder(read_cookie(pair_cookie_name), devNames)
+    initialize_pair_ladder(persistedPairingDataList.getData(), devNames)
 }
 
 function create_pair_ladder_rows(devNames) {
@@ -45,7 +45,7 @@ function create_pair_ladder_rows(devNames) {
 
 function create_count_boxes(clonedLeftNameTR, numberOfCountBoxes) {
     var countTDToBeCloned = $(clonedLeftNameTR).find(".count_td_clone_td");
-    var devNames = read_cookie(dev_names_cookie_names)
+    var devNames = persistedDevNameList.getData();
 	var devCount = devNames.length;
     for (var i = 0; i < numberOfCountBoxes; i++) {
 	    var primaryDevID = $(clonedLeftNameTR).attr("id");
