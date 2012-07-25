@@ -1,5 +1,5 @@
 <!--
-    Copyright 2011 Michael Rylander
+    Copyright 2012 Michael Rylander
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -13,30 +13,35 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
-    Description of Purpose: Introduction to Pair Stairs page
-
+    Description of Purpose: Edit the list of people listed in the pair stair
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
 <head>
-    <title>Pair Stair | Introduction</title>
-    <meta name="description" content="An introduction to Pair Stairs. A Pairing Staircase is used to visually track the paring activity commonly associated with XP and the Agile Software Development process.">
+    <title>Pair Stair | Edit People</title>
+    <meta name="description" content="Configuration page for adding or removing people from the Pair Stair.">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, follow">
 
-    <script type="text/javascript" src="scripts/persistence.js"></script>
-    <script type="text/javascript" src="scripts/googleAnalytics.js"></script>
+    <script type="text/javascript" src="../resources/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/persistence.js"></script>
+    <script type="text/javascript" src="../scripts/googleAnalytics.js"></script>
 </head>
-
 <body>
 <div>
-    <h1>Introduction to Pair Stairs for Agile Software Development</h1>
+    <h1> People in Pair Stair</h1>
     <script type="text/javascript">
+        var out = document.write();
         var data = persistedDevNameList.getData();
         if (data != null) {
             document.write("<p>There are " + data.length + " people in the stair. </p>");
+            document.write("<ol>");
+            $(data).each(function(index, pairName){
+                document.write("<li>"+ pairName + "</li>");
+            });
+            document.write("</ol>");
         } else {
             document.write("<p>There are no people in the stair. </p>");
         }
