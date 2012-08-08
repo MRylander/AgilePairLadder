@@ -20,17 +20,10 @@ $(document).ready(function() {
     var data = persistedDevNameList.getData();
 
     //todo - check for all devs removed.
-    if (data == null) {
-        show_popup_modal()
-        return
-    }
+//    ((data == null) || (data.length < 2)) not enough devs.
+//    need to remove dev ""
 
     construct_pair_ladder();
-
-    $("#pair_ladder_table .remove_developer").click(function() {
-        remove_a_dev(this);
-        return false;
-    });
 
     var resizeTimer;
     $(window).resize(function() {
