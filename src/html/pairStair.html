@@ -26,9 +26,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="../css/pair_ladder.css"/>
-    <link rel="stylesheet" href="../css/popup_modal.css"/>
-    <link rel="stylesheet" href="../css/developer_form.css"/>
+    <link rel="stylesheet" href="../css/site.css"/>
+    <link rel="stylesheet" href="../css/pairStair.css"/>
 
     <script type="text/javascript" src="../resources/jquery.js"></script>
     <script type="text/javascript" src="../scripts/add_subtract_pairing_days.js"></script>
@@ -58,7 +57,7 @@
     <div id="pairStairsWrapper">
         <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
             <tr class="left_names_cloned_tr left_names">
-                <td class="disabled disabled_clone_td"></td>
+                <td class="invisibleSpacer"></td>
                 <td class="left_name">
                     <div class="pairBox">
                         <p class="dev_name"></p>
@@ -68,8 +67,8 @@
                     <div class="pairBox">
                         <div class="count">0</div>
                         <div class="control_container">
-                            <input class="control add" type="button" value="+" onclick="doAdd(this);"/>
-                            <input class="control subtract" type="button" value="-" onclick="doSubtract(this)"/>
+                            <input class="countControl add" type="button" value="+" onclick="doAdd(this);"/>
+                            <input class="countControl subtract" type="button" value="-" onclick="doSubtract(this)"/>
                         </div>
                     </div>
                 </td>

@@ -67,9 +67,7 @@ function savePeople(){
 
 function makeFieldEditable(button){
     $(button).siblings('input.person_name').prop('disabled', false);
-    $(button).css('visibility', 'hidden');
-
-//    $(button).remove();
+    $(button).addClass('invisibleSpacer');
 }
 
 function removeField(button){

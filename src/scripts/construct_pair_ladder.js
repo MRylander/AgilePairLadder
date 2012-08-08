@@ -61,10 +61,9 @@ function create_count_boxes(clonedLeftNameTR, numberOfCountBoxes) {
 }
 
 function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
-    var disabledTDToBeCloned = $(clonedLeftNameTR).find(".disabled_clone_td");
+    var disabledTDToBeCloned = $(clonedLeftNameTR).find(".invisibleSpacer");
     for (var i = 0; i < numberOfDisabledBoxes; i++) {
         var disabledCloneTD = $(disabledTDToBeCloned).clone();
-        $(disabledCloneTD).removeClass("disabled_clone_td");
         $(disabledCloneTD).insertBefore($(disabledTDToBeCloned))
     }
     $(disabledTDToBeCloned).remove();

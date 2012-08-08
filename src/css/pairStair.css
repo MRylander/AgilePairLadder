@@ -13,19 +13,8 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
-    Description of Purpose: css for pair ladder
-
     Modified by Nishitha Ningegowda 2012
 */
-
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #d0cfcf;
-}
-
-#switch_stairs input {
-    width: 100%;
-}
 
 #container {
     text-align: center;
@@ -39,14 +28,11 @@ body {
 
 #pairing_ladder_text {
     font-size: 30px;
-    font-weight: bold;
     text-align: center;
-    border-top-left-radius: .2em;
-    border-top-right-radius: .2em;
-    border-bottom-left-radius: .2em;
-    border-bottom-right-radius: .2em;
+    border-radius: .2em;
     background-color: #34aeed;
     text-shadow: 5px 1px 5px #3586a7;
+    padding: 5px;
 }
 
 #pairStairsWrapper {
@@ -66,12 +52,7 @@ body {
     box-shadow: 1px 1px 2px black;
 }
 
-.disabled {
-    border-top-right-radius: 0px !important;
-    box-shadow: 0px 0px 0px black !important;
-}
-
-.control {
+.countControl {
     background-color: black;
     border: 1px solid black;
     color: yellow;
@@ -93,54 +74,15 @@ body {
     font-size: 25px;
 }
 
-.pink_background_color {
-    background-color: #FF0099;
-}
-
-.title {
-    font-size: 20px;
-    font-weight: bold;
-    padding-bottom: 10px;
-    color: white;
-    height: 12px;
-}
-
-.red_background_color {
-    background-color: #FF0000;
-}
-
-.clone_row, .divorce_clone_row {
-    opacity: 0;
-}
-
 .count {
     text-shadow: 5px 1px 5px white;
 }
 
-.left_name p, .top_name p, .dev_name {
+.dev_name {
     word-wrap: normal;
     font-weight: bold;
     font-size: 20px;
     white-space: nowrap;
-}
-
-.small {
-    font-size: 13px;
-}
-
-td#switch_stairs {
-    border-collapse: collapse;
-    box-shadow: 0 0 0;
-}
-
-.hidden {
-    display: none;
-}
-
-.more {
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-bottom: 5px;
 }
 
 .pairBox {
