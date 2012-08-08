@@ -39,7 +39,6 @@
     <script type="text/javascript" src="../scripts/animation.js"></script>
     <script type="text/javascript" src="../scripts/persistence.js"></script>
     <script type="text/javascript" src="../scripts/googleAnalytics.js"></script>
-
 </head>
 
 <body>
@@ -50,8 +49,8 @@
             Pair Stair
         </div>
         <div>
-            <input type="button" value="Reset" onclick="clearPairingData();"/>
-            <input type="button" value="Add Dev" onclick="show_add_new_developer_modal();"/>
+            <input type="button" value="Reset Pairing Data" onclick="clearPairingData();"/>
+            <input type="button" value="Edit People" onclick="window.location.href = 'editPeople.html';"/>
         </div>
     </div>
 
@@ -63,7 +62,6 @@
                 <td class="left_name">
                     <div class="pairBox">
                         <p class="dev_name"></p>
-                        <a class="remove_developer" href="#">Remove</a>
                     </div>
                 </td>
                 <td class="count_td count_td_clone_td">
@@ -80,73 +78,5 @@
     </div>
 </div>
 
-
-<div id="modal">
-
-    <div class="form_container">
-        <div class="modal_title">
-            <h1>Enter Developer Names</h1>
-        </div>
-
-        <div class="developer_names_form">
-            <div>
-                <div class="developer_name">
-                    <input type="text" maxlength="25" value=""/>
-                    <img src="../images/delete.png" alt="Remove" class="remove_developer">
-                </div>
-
-                <div class="developer_name cloned_developer_name">
-                    <input type="text" maxlength="10" value=""/>
-                    <button class="remove_developer">
-                        <img src="../images/delete.png" alt="Remove"/>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="add_submit_container">
-            <button id="add_another_developer">
-                Add Developer
-            </button>
-
-            <button id="submit_developers_list_button">
-                Done
-            </button>
-        </div>
-
-    </div>
-    <div class="mask"></div>
-</div>
-
-<div id="add_new_dev_modal">
-    <div class="form_container">
-        <div class="modal_title">
-            <h1>Enter New Developer Name</h1>
-        </div>
-
-        <div class="developer_names_form">
-            <div>
-                <div class="developer_name">
-                    <input type="text" maxlength="10" value=""/>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="add_submit_container">
-            <button id="add_new_developer_done" onclick="add_new_developer()">
-                Done
-            </button>
-
-            <button id="add_new_developer_cancel" onclick="close_add_new_developer_modal();">
-                Cancel
-            </button>
-        </div>
-
-    </div>
-    <div class="mask"></div>
-
-</div>
 </body>
 </html>
