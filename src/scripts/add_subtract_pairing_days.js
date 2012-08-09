@@ -37,7 +37,9 @@ function doSubtract(button) {
 }
 
 function clearPairingData() {
-    persistedPairingDataList.clearData();
-    $(".count").text("0");
+    if(confirm("Are you sure you wish to reset all pairing data to zero?")){
+        persistedPairingDataList.clearData();
+        $(".count").text("0");
+    }
 }
 
