@@ -26,6 +26,7 @@ body {
 
 div {
     overflow: auto;
+    margin: auto;
 }
 
 div.pageContainer{
@@ -34,22 +35,16 @@ div.pageContainer{
     bottom: 0px;
     left: 0px;
     right: 0px;
-    margin:auto;
 }
 
 div.pageHeaderAndControlsContainer {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    margin: auto;
-    min-width: 30%;
-    max-width: 60%;
+    margin-top: 5px;
+    min-width: 700px;
+    max-width: 1200px;
 }
 
 div.pageHeader {
     font-size: 30px;
-    text-align: center;
     border-radius: 5px 5px 0px 0px;
     background-color: #34aeed;
     text-shadow: 5px 1px 5px #3586a7;
@@ -61,4 +56,10 @@ div.pageControls{
     border-radius: 0px 0px 5px 5px;
     border-top: 2px solid black;
     padding: 5px;
+}
+
+p {
+    text-align: left;
+    padding: 10px;
+    margin: auto;
 }

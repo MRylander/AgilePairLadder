@@ -23,32 +23,29 @@
 <head>
     <title>Pair Stair | Introduction</title>
     <meta name="description"
-          content="An introduction to Pair Stairs. A Pairing Staircase is used to visually track the paring activity commonly associated with XP and the Agile Software Development process.">
+          content="A Pairing Staircase visually represents who has paired with whom and how often. Pair Stairs are most often associated with Paired Programing, an Agile Software Development technique, but can be used for any activity that involves pairing.">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="robots" content="index, follow">
 
-    <script type="text/javascript" src="scripts/persistence.js"></script>
+    <link rel="stylesheet" href="css/site.css"/>
+
     <script type="text/javascript" src="scripts/googleAnalytics.js"></script>
 </head>
 
 <body>
-<div>
-
-    <!--redirect to pair stair until intro page is complete-->
-    <script type="text/javascript">
-        window.location.replace("html/pairStair.html");
-    </script>
-
-
-    <h1>Introduction to Pair Stairs for Agile Software Development</h1>
-    <script type="text/javascript">
-        var data = persistedDevNameList.getData();
-        if (data != null) {
-            document.write("<p>There are " + data.length + " people in the stair. </p>");
-        } else {
-            document.write("<p>There are no people in the stair. </p>");
-        }
-    </script>
+<div class="pageContainer">
+    <div class="pageHeaderAndControlsContainer">
+        <div class="pageHeader">
+            Introduction to Pair Stairs
+        </div>
+        <div class="pageControls">
+            <!--TODO add screen cap-->
+            <!--<img src="images/delete16.png" alt="Screen capture of pair stair" width="500px" height="500px" style="float:right;">-->
+            <p> A Pairing Staircase visually represents who has paired with whom and how often. Pair Stairs are most often associated with Paired Programing, an Agile Software Development technique, but can be used for any activity that involves pairing.</p>
+            <p> One of the possible reasons to use a Pairing Staircase during software development is to ensure that every developer pairs with every other developer. Pairing helps with knowledge sharing throughout the development team and the staircase will help visualize gaps in the knowledge sharing chain. </p>
+            <input type="button" value="Create/View Your Pair Stair" onclick="window.location.href = 'html/pairStair.html';"/>
+        </div>
+    </div>
 </div>
 </body>
 </html>
