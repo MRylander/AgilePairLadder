@@ -16,25 +16,6 @@
     Modified by Nishitha Ningegowda 2012
 */
 
-#container {
-    text-align: center;
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin:auto;
-}
-
-#pairing_ladder_text {
-    font-size: 30px;
-    text-align: center;
-    border-radius: .2em;
-    background-color: #34aeed;
-    text-shadow: 5px 1px 5px #3586a7;
-    padding: 5px;
-}
-
 #pairStairsWrapper {
     position: absolute;
     bottom: 0px;
@@ -87,14 +68,4 @@
 
 .pairBox {
     overflow: auto;
-}
-
-#titleAndControlWrapper {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    bottom: 66%;
-    right: 66%;
-    z-index: 1;
-    margin: auto;
 }

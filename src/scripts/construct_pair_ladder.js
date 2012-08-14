@@ -78,10 +78,10 @@ function initialize_pair_ladder(pair_cookie_data, devNames) {
 
     // TODO - auto figure the height for boarders better.
     var pairBoxSquareWidth = (squareWidth / numberOfDevs) - (numberOfDevs * 2);
-    $("#container").css("min-height", squareWidth);
-    $("#container").css("min-width", squareWidth);
-    $("#container").css("max-height", squareWidth);
-    $("#container").css("max-width", squareWidth);
+    $(".pageContainer").css("min-height", squareWidth);
+    $(".pageContainer").css("min-width", squareWidth);
+    $(".pageContainer").css("max-height", squareWidth);
+    $(".pageContainer").css("max-width", squareWidth);
     $("#pair_ladder_table .pairBox").css("min-height", pairBoxSquareWidth);
     $("#pair_ladder_table .pairBox").css("min-width", pairBoxSquareWidth);
     $("#pair_ladder_table .pairBox").css("max-height", pairBoxSquareWidth);
