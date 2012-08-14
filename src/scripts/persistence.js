@@ -71,3 +71,12 @@ function updatePairCount(pairToModify, newValue) {
 
     persistedPairingDataList.setData(newPairingData);
 }
+
+function getNumberOfPeopleInPairStair() {
+    var data = persistedDevNameList.getData();
+    if (data != null) {
+        return data.length;
+    } else {
+        return 0;
+    }
+}
