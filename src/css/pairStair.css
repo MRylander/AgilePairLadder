@@ -25,7 +25,6 @@
 }
 
 #pair_ladder_table td {
-    text-align: center;
     border-top-right-radius: 1.2em;
     box-shadow: 1px 1px 2px black;
 }
@@ -49,7 +48,6 @@
 .left_name, .top_name {
     background-color: #57E964;
     color: white;
-    font-size: 25px;
 }
 
 .count {
@@ -57,10 +55,8 @@
 }
 
 .dev_name {
-    word-wrap: normal;
     font-weight: bold;
-    font-size: 20px;
-    white-space: nowrap;
+    overflow: visible;
 }
 
 .pairBox {

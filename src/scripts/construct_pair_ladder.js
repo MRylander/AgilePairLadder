@@ -13,7 +13,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
-    Description of Purpose: js for pair ladder
     Modified by Akshay Jawharkar, Nishitha Ningegowda
 */
 
@@ -73,19 +72,21 @@ function initialize_pair_ladder(pair_cookie_data, devNames) {
     var numberOfDevs = devNames.length
 
     // total height of available space - 100 (estimated size of control bar)
-    var squareWidth = window.innerHeight - 100;
+    var availableHeight = window.innerHeight - 100;
 
     // available space for pair stair - 2 (allows for a td boarder of 1)
-    var pairBoxSquareWidth = Math.floor((squareWidth / numberOfDevs)) - 2;
+    var pairBoxHeight = Math.floor((availableHeight / numberOfDevs)) - 2;
+    $(".pairBox").css("min-height", pairBoxHeight);
+    $(".pairBox").css("min-width", pairBoxHeight);
+    $(".pairBox").css("max-height", pairBoxHeight);
+    $(".pairBox").css("max-width", pairBoxHeight);
 
-    $("#pair_ladder_table .pairBox").css("min-height", pairBoxSquareWidth);
-    $("#pair_ladder_table .pairBox").css("min-width", pairBoxSquareWidth);
-    $("#pair_ladder_table .pairBox").css("max-height", pairBoxSquareWidth);
-    $("#pair_ladder_table .pairBox").css("max-width", pairBoxSquareWidth);
+    var countFontSize = Math.floor(pairBoxHeight * 0.5);
+    $(".count").css("font-size", countFontSize);
 
-    var countDivHeight = (pairBoxSquareWidth - (parseFloat(pairBoxSquareWidth / 100) * 30));
-    $(".count").css("height", countDivHeight - 6);
-    $(".count").css("font-size", (countDivHeight * .70));
+    var devNameFontSize = Math.floor(pairBoxHeight * 0.2);
+    $(".dev_name").css("font-size", devNameFontSize);
+    $(".dev_name").css("margin-top", (pairBoxHeight - devNameFontSize)/2 );
 
     $(pair_cookie_data).each(function(index, value) {
         var pair_data = value.split("-");
