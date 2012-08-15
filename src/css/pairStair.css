@@ -16,10 +16,7 @@
     Modified by Nishitha Ningegowda 2012
 */
 
-#pairStairsWrapper {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+.pairStairs {
     z-index: 0;
 }
 

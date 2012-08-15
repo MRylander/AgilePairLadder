@@ -63,3 +63,13 @@ p {
     padding: 10px;
     margin: auto;
 }
+
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+table {
+	border-spacing: 1;
+}

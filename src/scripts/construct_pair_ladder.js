@@ -72,22 +72,16 @@ function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
 function initialize_pair_ladder(pair_cookie_data, devNames) {
     var numberOfDevs = devNames.length
 
-    var windowHeight = window.innerHeight;
-    var windowWidth = window.innerWidth;
-    var squareWidth = Math.min(windowHeight, windowWidth)
+    // total height of available space - 100 (estimated size of control bar)
+    var squareWidth = window.innerHeight - 100;
 
-    // TODO - auto figure the height for boarders better.
-    var pairBoxSquareWidth = (squareWidth / numberOfDevs) - (numberOfDevs * 2);
-    $(".pageContainer").css("min-height", squareWidth);
-    $(".pageContainer").css("min-width", squareWidth);
-    $(".pageContainer").css("max-height", squareWidth);
-    $(".pageContainer").css("max-width", squareWidth);
+    // available space for pair stair - 2 (allows for a td boarder of 1)
+    var pairBoxSquareWidth = Math.floor((squareWidth / numberOfDevs)) - 2;
+
     $("#pair_ladder_table .pairBox").css("min-height", pairBoxSquareWidth);
     $("#pair_ladder_table .pairBox").css("min-width", pairBoxSquareWidth);
     $("#pair_ladder_table .pairBox").css("max-height", pairBoxSquareWidth);
     $("#pair_ladder_table .pairBox").css("max-width", pairBoxSquareWidth);
-
-    var fontSize = numberOfDevs > 7 ? ((numberOfDevs > 10) ? ".5em" : "0.8em") : "1em";
 
     var countDivHeight = (pairBoxSquareWidth - (parseFloat(pairBoxSquareWidth / 100) * 30));
     $(".count").css("height", countDivHeight - 6);

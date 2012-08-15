@@ -46,33 +46,36 @@
             Pair Stair
         </div>
         <div class="pageControls">
+            <input type="button" value="Introduction to Pair Stairs" onclick="window.location.href = '../index.html';"/>
             <input type="button" value="Edit People" onclick="window.location.href = 'editPeople.html';"/>  
             <input type="button" value="Reset Pairing Data" onclick="clearPairingData();"/>
+
+            <!-- Pair Stairs -->
+            <div class="pairStairs">
+                <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
+                    <tr class="left_names_cloned_tr left_names">
+                        <td class="invisibleSpacer"></td>
+                        <td class="left_name">
+                            <div class="pairBox">
+                                <p class="dev_name"></p>
+                            </div>
+                        </td>
+                        <td class="count_td count_td_clone_td">
+                            <div class="pairBox">
+                                <div class="count">0</div>
+                                <div class="control_container">
+                                    <input class="countControl add" type="button" value="+" onclick="doAdd(this);"/>
+                                    <input class="countControl subtract" type="button" value="-" onclick="doSubtract(this)"/>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
-    <!-- Pair Stairs -->
-    <div id="pairStairsWrapper">
-        <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
-            <tr class="left_names_cloned_tr left_names">
-                <td class="invisibleSpacer"></td>
-                <td class="left_name">
-                    <div class="pairBox">
-                        <p class="dev_name"></p>
-                    </div>
-                </td>
-                <td class="count_td count_td_clone_td">
-                    <div class="pairBox">
-                        <div class="count">0</div>
-                        <div class="control_container">
-                            <input class="countControl add" type="button" value="+" onclick="doAdd(this);"/>
-                            <input class="countControl subtract" type="button" value="-" onclick="doSubtract(this)"/>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
+
 </div>
 
 </body>
