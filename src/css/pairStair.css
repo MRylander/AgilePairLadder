@@ -45,9 +45,10 @@
     right: 5px;
 }
 
-.left_name, .top_name {
+.left_name {
     background-color: #57E964;
     color: white;
+    text-shadow: 0.1em 0.1em 0.2em #545454;
 }
 
 .count {
