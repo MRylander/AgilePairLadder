@@ -34,4 +34,30 @@ $(document).ready(function() {
     init_hover_animation();
 });
 
+function doAdd(button) {
+    var td = $(button).closest("td.count_td").first();
+    var value = td.find("div.count").text();
+    value++;
+    td.find("div.count").text(value);
+    updatePairCount(td.get(0).id, value);
+}
+
+function doSubtract(button) {
+    var td = $(button).closest("td.count_td").first();
+    var value = td.find("div.count").text();
+    if (value <= 0) {
+        return;
+    }
+    value--;
+    td.find("div.count").text(value);
+    updatePairCount(td.get(0).id, value);
+}
+
+function clearPairingData() {
+    if(confirm("Are you sure you wish to reset all pairing data to zero?")){
+        persistedPairingDataList.clearData();
+        $(".count").text("0");
+    }
+}
+
 
