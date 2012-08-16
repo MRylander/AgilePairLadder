@@ -73,3 +73,8 @@ td {
 table {
 	border-spacing: 1;
 }
+
+ul {
+    margin: 0;
+    border: 0 solid black;
+}

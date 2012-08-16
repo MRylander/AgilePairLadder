@@ -17,9 +17,9 @@
 $(document).ready(function() {
     var data = persistedDevNameList.getData();
 
-    //todo - check for all devs removed.
-//    ((data == null) || (data.length < 2)) not enough devs.
-//    need to remove dev ""
+    if ((data == null) || (data.length < 2)){
+        window.location.href = "editPeople.html";
+    }
 
     construct_pair_ladder();
 

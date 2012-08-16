@@ -31,3 +31,17 @@
     color: black;
     background-color: #d3d3d3;
 }
+
+div.requirements {
+    text-align: left;
+    display: inline-block;
+}
+
+div.requirements h1 {
+    font-size: 125%;
+    margin: 0;
+    border: 0 solid black;
+    padding: 0;
+    text-align: center;
+    text-decoration: underline;
+}

@@ -21,19 +21,27 @@ $(document).ready(function() {
     }
 );
 
+$("input").live("keypress",function(e) {
+    if(e.which == 13) {
+        addNewPersonField();
+    }
+});
+
 function populatePeopleList() {
     var data = persistedDevNameList.getData();
-    if (data != null) {
+    if (data != null && data[0] != "") {
         $(data).each(function(index, pairName) {
             addPersonFieldWithPersonNamed(pairName);
         });
-        $('.person').last().remove();
+    } else {
+        addNewPersonField();
     }
+    addNewPersonField();
+    $('.person').last().remove();
 }
 
 function addNewPersonField() {
     var newInputField = addPerson('');
-//    newInputField.prop('disabled', false);
     makeFieldEditable($(newInputField).siblings('.person_edit_button'));
     newInputField.focus();
 };
@@ -62,7 +70,12 @@ function savePeople(){
     })
     peopleList.sort()
     persistedDevNameList.setData(peopleList);
-    window.location.href = "pairStair.html";
+    if (peopleList.length < 2){
+        alert("Pair Stair requires at least 2 people.");
+        window.location.href = "editPeople.html";
+    } else{
+        window.location.href = "pairStair.html";
+    }
 }
 
 function makeFieldEditable(button){

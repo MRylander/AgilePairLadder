@@ -45,13 +45,24 @@
                 <input type="button" value="Introduction to Pair Stairs" onclick="window.location.href = '../index.html';"/>
                 <input class="button" type="button" value="Add Another Person" onclick="addNewPersonField();"/>
                 <input class="button" type="button" value="Save Changes" onclick="savePeople();"/>
+                <input type="button" value="Cancel" onclick="window.location.href = 'pairStair.html';"/>
 
                 <div class="person">
                     <input class="person_name" type="text" maxlength="25" value="" disabled=""/>
-                    <input class="person_edit_button button" type="image" src="../images/edit16.png" value="Edit"
-                           onclick="makeFieldEditable(this);"/>
-                    <input class="person_remove_button button" type="image" src="../images/delete16.png" value="Remove"
-                           onclick="removeField(this);"/>
+                    <input class="person_edit_button button" type="image" src="../images/edit16.png" value="Edit" onclick="makeFieldEditable(this);"/>
+                    <input class="person_remove_button button" type="image" src="../images/delete16.png" value="Remove" onclick="removeField(this);"/>
+                </div>
+
+                <div class="requirements">
+                    <h1> Requirements </h1>
+                    <ul>
+                        <li>
+                            Must have at least 2 people.
+                        </li>
+                        <li>
+                            People names must be unique.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
