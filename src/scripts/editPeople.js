@@ -33,9 +33,7 @@ function populatePeopleList() {
         $(data).each(function(index, pairName) {
             addPersonFieldWithPersonNamed(pairName);
         });
-    } else {
-        addNewPersonField();
-    }
+    } 
     addNewPersonField();
     $('.person').last().remove();
 }
@@ -85,6 +83,11 @@ function makeFieldEditable(button){
 
 function removeField(button){
     if(confirm("Are you sure you wish to remove this person?")){
+        // maintain at least 1 person div
+        if ($('.person').length < 2){
+            addNewPersonField();
+        }
+        
         $(button).closest('div').remove();
     }
 }
