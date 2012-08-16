@@ -1,0 +1,79 @@
+<!--
+    Copyright 2011 Michael Rylander
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Modified by Nishitha Ningegowda 2012
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <title>Pair Stair</title>
+    <meta name="description" content="A pairing staircase for tracking paring activity commonly associated the Agile Software Development process.">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="../css/site.css"/>
+    <link rel="stylesheet" href="../css/pairStair.css"/>
+
+    <script type="text/javascript" src="../resources/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/pairStair.js"></script>
+    <script type="text/javascript" src="../scripts/pairStairConstructAndInitialize.js"></script>
+    <script type="text/javascript" src="../scripts/pairStairAnimation.js"></script>
+    <script type="text/javascript" src="../scripts/persistence.js"></script>
+    <script type="text/javascript" src="../scripts/googleAnalytics.js"></script>
+</head>
+
+<body>
+<div class="pageContainer">
+    <!-- Title and Controls-->
+    <div class="pageHeaderAndControlsContainer">
+        <div class="pageHeader">
+            Pair Stair
+        </div>
+        <div class="pageControls">
+            <input type="button" value="Introduction to Pair Stairs" onclick="window.location.href = '../index.html';"/>
+            <input type="button" value="Edit People" onclick="window.location.href = 'editPeople.html';"/>  
+            <input type="button" value="Reset Pairing Data" onclick="clearPairingData();"/>
+
+            <!-- Pair Stairs -->
+            <div class="pairStairs">
+                <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
+                    <tr class="left_names_cloned_tr left_names">
+                        <td class="invisibleSpacer"></td>
+                        <td class="left_name">
+                            <div class="pairBox">
+                                <div class="dev_name"></div>
+                            </div>
+                        </td>
+                        <td class="count_td count_td_clone_td">
+                            <div class="pairBox">
+                                <div class="count">0</div>
+                                <div class="control_container">
+                                    <input class="countControl add" type="button" value="+" onclick="doAdd(this);"/>
+                                    <input class="countControl subtract" type="button" value="-" onclick="doSubtract(this)"/>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

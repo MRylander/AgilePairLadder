@@ -12,10 +12,25 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-    Description of Purpose: js for pair ladder
-    Modified by Akshay Jawharkar
 */
+
+$(document).ready(function() {
+    var data = persistedDevNameList.getData();
+
+    if ((data == null) || (data.length < 2)){
+        window.location.href = "editPeople.html";
+    }
+
+    construct_pair_ladder();
+
+    var resizeTimer;
+    $(window).resize(function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(construct_pair_ladder, 1000);
+    });
+
+    init_hover_animation();
+});
 
 function doAdd(button) {
     var td = $(button).closest("td.count_td").first();
@@ -37,7 +52,10 @@ function doSubtract(button) {
 }
 
 function clearPairingData() {
-    persistedPairingDataList.clearData();
-    $(".count").text("0");
+    if(confirm("Are you sure you wish to reset all pairing data to zero?")){
+        persistedPairingDataList.clearData();
+        $(".count").text("0");
+    }
 }
+
 
