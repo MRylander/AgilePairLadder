@@ -1,0 +1,72 @@
+<!--
+    Copyright 2012 Michael Rylander
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Description of Purpose: Edit the list of people listed in the pair stair
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+    <title>Pair Stair | Edit People</title>
+    <meta name="description" content="Configuration page for adding or removing people from the Pair Stair.">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="noindex, follow">
+
+    <link rel="stylesheet" href="../css/site.css"/>
+    <link rel="stylesheet" href="../css/editPeople.css"/>
+
+    <script type="text/javascript" src="../resources/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/persistence.js"></script>
+    <script type="text/javascript" src="../scripts/googleAnalytics.js"></script>
+    <script type="text/javascript" src="../scripts/editPeople.js"></script>
+</head>
+<body>
+<div class="pageContainer">
+    <div class="pageHeaderAndControlsContainer">
+        <div class="pageHeader">
+            Pair Stair | Edit People
+        </div>
+
+        <div class="developer_names_form">
+            <div class="pageControls">
+                <input type="button" value="Introduction to Pair Stairs" onclick="window.location.href = '../index.html';"/>
+                <input class="button" type="button" value="Add Another Person" onclick="addNewPersonField();"/>
+                <input class="button" type="button" value="Save Changes" onclick="savePeople();"/>
+                <input type="button" value="Cancel" onclick="window.location.href = 'pairStair.html';"/>
+
+                <div class="person">
+                    <input class="person_name" type="text" maxlength="25" value="" disabled=""/>
+                    <input class="person_edit_button button" type="image" src="../images/edit16.png" value="Edit" onclick="makeFieldEditable(this);"/>
+                    <input class="person_remove_button button" type="image" src="../images/delete16.png" value="Remove" onclick="removeField(this);"/>
+                </div>
+
+                <div class="requirements">
+                    <h1> Requirements </h1>
+                    <ul>
+                        <li>
+                            Must have at least 2 people.
+                        </li>
+                        <li>
+                            People names must be unique.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

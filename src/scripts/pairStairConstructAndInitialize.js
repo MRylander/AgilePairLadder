@@ -13,7 +13,6 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 
-    Description of Purpose: js for pair ladder
     Modified by Akshay Jawharkar, Nishitha Ningegowda
 */
 
@@ -61,10 +60,9 @@ function create_count_boxes(clonedLeftNameTR, numberOfCountBoxes) {
 }
 
 function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
-    var disabledTDToBeCloned = $(clonedLeftNameTR).find(".disabled_clone_td");
+    var disabledTDToBeCloned = $(clonedLeftNameTR).find(".invisibleSpacer");
     for (var i = 0; i < numberOfDisabledBoxes; i++) {
         var disabledCloneTD = $(disabledTDToBeCloned).clone();
-        $(disabledCloneTD).removeClass("disabled_clone_td");
         $(disabledCloneTD).insertBefore($(disabledTDToBeCloned))
     }
     $(disabledTDToBeCloned).remove();
@@ -73,26 +71,22 @@ function create_disabled_boxes(clonedLeftNameTR, numberOfDisabledBoxes) {
 function initialize_pair_ladder(pair_cookie_data, devNames) {
     var numberOfDevs = devNames.length
 
-    var windowHeight = window.innerHeight;
-    var windowWidth = window.innerWidth;
-    var squareWidth = Math.min(windowHeight, windowWidth)
+    // total height of available space - 100 (estimated size of control bar)
+    var availableHeight = window.innerHeight - 100;
 
-    // TODO - auto figure the height for boarders better.
-    var pairBoxSquareWidth = (squareWidth / numberOfDevs) - (numberOfDevs * 2);
-    $("#container").css("min-height", squareWidth);
-    $("#container").css("min-width", squareWidth);
-    $("#container").css("max-height", squareWidth);
-    $("#container").css("max-width", squareWidth);
-    $("#pair_ladder_table .pairBox").css("min-height", pairBoxSquareWidth);
-    $("#pair_ladder_table .pairBox").css("min-width", pairBoxSquareWidth);
-    $("#pair_ladder_table .pairBox").css("max-height", pairBoxSquareWidth);
-    $("#pair_ladder_table .pairBox").css("max-width", pairBoxSquareWidth);
+    // available space for pair stair - 2 (allows for a td boarder of 1)
+    var pairBoxHeight = Math.floor((availableHeight / numberOfDevs)) - 2;
+    $(".pairBox").css("min-height", pairBoxHeight);
+    $(".pairBox").css("min-width", pairBoxHeight);
+    $(".pairBox").css("max-height", pairBoxHeight);
+    $(".pairBox").css("max-width", pairBoxHeight);
 
-    var fontSize = numberOfDevs > 7 ? ((numberOfDevs > 10) ? ".5em" : "0.8em") : "1em";
+    var countFontSize = Math.floor(pairBoxHeight * 0.5);
+    $(".count").css("font-size", countFontSize);
 
-    var countDivHeight = (pairBoxSquareWidth - (parseFloat(pairBoxSquareWidth / 100) * 30));
-    $(".count").css("height", countDivHeight - 6);
-    $(".count").css("font-size", (countDivHeight * .70));
+    var devNameFontSize = Math.floor(pairBoxHeight * 0.2);
+    $(".dev_name").css("font-size", devNameFontSize);
+    $(".dev_name").css("margin-top", (pairBoxHeight - devNameFontSize)/2 );
 
     $(pair_cookie_data).each(function(index, value) {
         var pair_data = value.split("-");

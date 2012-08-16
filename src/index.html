@@ -12,138 +12,36 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
-    Description of Purpose: Is the pair ladder
-
-    Modified by Nishitha Ningegowda 2012
 -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
 <head>
-    <title>Pair Ladder</title>
+    <title>Pair Stair | Introduction</title>
+    <meta name="description"
+          content="A Pairing Staircase visually represents who has paired with whom and how often. Pair Stairs are most often associated with Paired Programing, an Agile Software Development technique, but can be used for any activity that involves pairing.">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="index, follow">
 
-    <link rel="stylesheet" href="css/pair_ladder.css"/>
-    <link rel="stylesheet" href="css/popup_modal.css"/>
-    <link rel="stylesheet" href="css/developer_form.css"/>
+    <link rel="stylesheet" href="css/site.css"/>
 
-    <script type="text/javascript" src="resources/jquery.js"></script>
-    <script type="text/javascript" src="scripts/add_subtract_pairing_days.js"></script>
-    <script type="text/javascript" src="scripts/document_ready.js"></script>
-    <script type="text/javascript" src="scripts/popup_modal.js"></script>
-    <script type="text/javascript" src="scripts/developer_names_form_submit.js"></script>
-    <script type="text/javascript" src="scripts/construct_pair_ladder.js"></script>
-    <script type="text/javascript" src="scripts/animation.js"></script>
-    <script type="text/javascript" src="scripts/persistence.js"></script>
     <script type="text/javascript" src="scripts/googleAnalytics.js"></script>
-
 </head>
 
 <body>
-<div id="container">
-    <!-- Title and Controls-->
-    <div id="titleAndControlWrapper">
-        <div id="pairing_ladder_text">
-            Pair Stair
+<div class="pageContainer">
+    <div class="pageHeaderAndControlsContainer">
+        <div class="pageHeader">
+            Introduction to Pair Stairs
         </div>
-        <div>
-            <input type="button" value="Reset" onclick="clearPairingData();"/>
-            <input type="button" value="Add Dev" onclick="show_add_new_developer_modal();"/>
+        <div class="pageControls">
+            <img src="images/R3Medium.png" alt="Screen capture of pair stair" style="float:right;">
+            <p> A Pairing Staircase visually represents who has paired with whom and how often. Pair Stairs are most often associated with Paired Programing, an Agile Software Development technique, but can be used for any activity that involves pairing.</p>
+            <p> One of the possible reasons to use a Pairing Staircase during software development is to ensure that every developer pairs with every other developer. Pairing helps with knowledge sharing throughout the development team and the staircase will help visualize gaps in the knowledge sharing chain. </p>
+            <input type="button" value="Create/View Your Pair Stair" onclick="window.location.href = 'html/pairStair.html';"/>
         </div>
     </div>
-
-    <!-- Pair Stairs -->
-    <div id="pairStairsWrapper">
-        <table id="pair_ladder_table" cellspacing="3" cellpadding="3">
-            <tr class="left_names_cloned_tr left_names">
-                <td class="disabled disabled_clone_td"></td>
-                <td class="left_name">
-                    <div class="pairBox">
-                        <p class="dev_name"></p>
-                        <a class="remove_developer" href="#">Remove</a>
-                    </div>
-                </td>
-                <td class="count_td count_td_clone_td">
-                    <div class="pairBox">
-                        <div class="count">0</div>
-                        <div class="control_container">
-                            <input class="control add" type="button" value="+" onclick="doAdd(this);"/>
-                            <input class="control subtract" type="button" value="-" onclick="doSubtract(this)"/>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
-
-
-<div id="modal">
-
-    <div class="form_container">
-        <div class="modal_title">
-            <h1>Enter Developer Names</h1>
-        </div>
-
-        <div class="developer_names_form">
-            <div>
-                <div class="developer_name">
-                    <input type="text" maxlength="25" value=""/>
-                    <img src="images/delete.png" alt="Remove" class="remove_developer">
-                </div>
-
-                <div class="developer_name cloned_developer_name">
-                    <input type="text" maxlength="10" value=""/>
-                    <button class="remove_developer">
-                        <img src="images/delete.png" alt="Remove"/>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="add_submit_container">
-            <button id="add_another_developer">
-                Add Developer
-            </button>
-
-            <button id="submit_developers_list_button">
-                Done
-            </button>
-        </div>
-
-    </div>
-    <div class="mask"></div>
-</div>
-
-<div id="add_new_dev_modal">
-    <div class="form_container">
-        <div class="modal_title">
-            <h1>Enter New Developer Name</h1>
-        </div>
-
-        <div class="developer_names_form">
-            <div>
-                <div class="developer_name">
-                    <input type="text" maxlength="10" value=""/>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="add_submit_container">
-            <button id="add_new_developer_done" onclick="add_new_developer()">
-                Done
-            </button>
-
-            <button id="add_new_developer_cancel" onclick="close_add_new_developer_modal();">
-                Cancel
-            </button>
-        </div>
-
-    </div>
-    <div class="mask"></div>
-
 </div>
 </body>
 </html>
